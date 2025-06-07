@@ -1,0 +1,9 @@
+D:\StarlightEngine\Engine\StarlightEngine\Source\Core\Object\SGameInstance.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\ReleaseGame\SGameInstance.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Core\Object\SObject.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\ReleaseGame\SObject.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Core\Object\SWorld.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\ReleaseGame\SWorld.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Engine\Engine.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\ReleaseGame\Engine.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Input\InputManager.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\ReleaseGame\InputManager.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Input\InputProcessor.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\ReleaseGame\InputProcessor.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Main.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\ReleaseGame\Main.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Math\Math.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\ReleaseGame\Math.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Renderer\Renderer.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\ReleaseGame\Renderer.obj

@@ -178,7 +178,7 @@
         </ClCompile>
         <Link>
             <SubSystem>Console</SubSystem>
-            <GenerateDebugInformation>true</GenerateDebugInformation>
+            <GenerateDebugInformation>false</GenerateDebugInformation>
         </Link>
     </ItemDefinitionGroup>
     <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseEditor|Win32'">
@@ -193,7 +193,7 @@
         </ClCompile>
         <Link>
             <SubSystem>Console</SubSystem>
-            <GenerateDebugInformation>true</GenerateDebugInformation>
+            <GenerateDebugInformation>false</GenerateDebugInformation>
         </Link>
     </ItemDefinitionGroup>
     <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugGame|x64'">
@@ -236,7 +236,7 @@
         </ClCompile>
         <Link>
             <SubSystem>Console</SubSystem>
-            <GenerateDebugInformation>true</GenerateDebugInformation>
+            <GenerateDebugInformation>false</GenerateDebugInformation>
             <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
         </Link>
     </ItemDefinitionGroup>
@@ -252,408 +252,20 @@
         </ClCompile>
         <Link>
             <SubSystem>Console</SubSystem>
-            <GenerateDebugInformation>true</GenerateDebugInformation>
+            <GenerateDebugInformation>false</GenerateDebugInformation>
             <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
         </Link>
     </ItemDefinitionGroup>
     <ItemGroup>
         <ClCompile Include="Source\Core\Object\SGameInstance.cpp"/>
-        <ClCompile Include="Source\Core\Object\SObject.cpp">
-            <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-            <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-            <Optimization>Disabled</Optimization>
-            <SupportJustMyCode>true</SupportJustMyCode>
-            <AssemblerOutput>NoListing</AssemblerOutput>
-            <AssemblerListingLocation>x64\DebugEditor\</AssemblerListingLocation>
-            <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-            <BrowseInformation>false</BrowseInformation>
-            <BrowseInformationFile>x64\DebugEditor\</BrowseInformationFile>
-            <CompileAs>Default</CompileAs>
-            <UseDynamicDebugging>false</UseDynamicDebugging>
-            <ConformanceMode>true</ConformanceMode>
-            <DiagnosticsFormat>Column</DiagnosticsFormat>
-            <DisableLanguageExtensions>false</DisableLanguageExtensions>
-            <ErrorReporting>Prompt</ErrorReporting>
-            <ExpandAttributedSource>false</ExpandAttributedSource>
-            <ExceptionHandling>Sync</ExceptionHandling>
-            <EnableASAN>false</EnableASAN>
-            <EnableFuzzer>false</EnableFuzzer>
-            <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
-            <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-            <EnableVectorLength>NotSet</EnableVectorLength>
-            <FloatingPointModel>Precise</FloatingPointModel>
-            <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-            <GenerateModuleDependencies>false</GenerateModuleDependencies>
-            <GenerateSourceDependencies>false</GenerateSourceDependencies>
-            <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-            <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-            <IntrinsicFunctions>false</IntrinsicFunctions>
-            <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-            <LanguageStandard>Default</LanguageStandard>
-            <LanguageStandard_C>Default</LanguageStandard_C>
-            <MinimalRebuild>false</MinimalRebuild>
-            <ModuleDependenciesFile>x64\DebugEditor\</ModuleDependenciesFile>
-            <ModuleOutputFile>x64\DebugEditor\</ModuleOutputFile>
-            <OmitDefaultLibName>false</OmitDefaultLibName>
-            <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-            <WholeProgramOptimization>false</WholeProgramOptimization>
-            <ObjectFileName>x64\DebugEditor\</ObjectFileName>
-            <CallingConvention>Cdecl</CallingConvention>
-            <ProgramDataBaseFileName>x64\DebugEditor\vc143.pdb</ProgramDataBaseFileName>
-            <PrecompiledHeader>NotUsing</PrecompiledHeader>
-            <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-            <PrecompiledHeaderOutputFile>x64\DebugEditor\StarlightEngine.pch</PrecompiledHeaderOutputFile>
-            <PreprocessToFile>false</PreprocessToFile>
-            <PreprocessKeepComments>false</PreprocessKeepComments>
-            <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
-            <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-            <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-            <ShowIncludes>false</ShowIncludes>
-            <SourceDependenciesFile>x64\DebugEditor\</SourceDependenciesFile>
-            <SuppressStartupBanner>true</SuppressStartupBanner>
-            <BufferSecurityCheck>true</BufferSecurityCheck>
-            <SmallerTypeCheck>false</SmallerTypeCheck>
-            <SpectreMitigation>false</SpectreMitigation>
-            <StructMemberAlignment>Default</StructMemberAlignment>
-            <TrackerLogDirectory>x64\DebugEditor\StarlightEngine.tlog\</TrackerLogDirectory>
-            <TranslateIncludes>false</TranslateIncludes>
-            <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-            <TreatWarningAsError>false</TreatWarningAsError>
-            <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-            <UseFullPaths>true</UseFullPaths>
-            <WarningLevel>Level3</WarningLevel>
-            <XMLDocumentationFileName>x64\DebugEditor\</XMLDocumentationFileName>
-            <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-            <IntelJCCErratum>false</IntelJCCErratum>
-            <BuildStlModules>false</BuildStlModules>
-            <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-            <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-            <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-            <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-            <PreprocessorDefinitions>_DEBUG;_CONSOLE;WITH_EDITOR=1;_UNICODE;UNICODE;</PreprocessorDefinitions>
-            <SDLCheck>true</SDLCheck>
-            <AdditionalIncludeDirectories>Source;Source/Core/;</AdditionalIncludeDirectories>
-            <LinkCompiled>true</LinkCompiled>
-        </ClCompile>
+        <ClCompile Include="Source\Core\Object\SObject.cpp"/>
         <ClCompile Include="Source\Core\Object\SWorld.cpp"/>
-        <ClCompile Include="Source\Engine\Engine.cpp">
-            <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-            <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-            <Optimization>Disabled</Optimization>
-            <SupportJustMyCode>true</SupportJustMyCode>
-            <AssemblerOutput>NoListing</AssemblerOutput>
-            <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
-            <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-            <BrowseInformation>false</BrowseInformation>
-            <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
-            <CompileAs>Default</CompileAs>
-            <UseDynamicDebugging>false</UseDynamicDebugging>
-            <ConformanceMode>true</ConformanceMode>
-            <DiagnosticsFormat>Column</DiagnosticsFormat>
-            <DisableLanguageExtensions>false</DisableLanguageExtensions>
-            <ErrorReporting>Prompt</ErrorReporting>
-            <ExpandAttributedSource>false</ExpandAttributedSource>
-            <ExceptionHandling>Sync</ExceptionHandling>
-            <EnableASAN>false</EnableASAN>
-            <EnableFuzzer>false</EnableFuzzer>
-            <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
-            <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-            <EnableVectorLength>NotSet</EnableVectorLength>
-            <FloatingPointModel>Precise</FloatingPointModel>
-            <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-            <GenerateModuleDependencies>false</GenerateModuleDependencies>
-            <GenerateSourceDependencies>false</GenerateSourceDependencies>
-            <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-            <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-            <IntrinsicFunctions>false</IntrinsicFunctions>
-            <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-            <LanguageStandard>Default</LanguageStandard>
-            <LanguageStandard_C>Default</LanguageStandard_C>
-            <MinimalRebuild>false</MinimalRebuild>
-            <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
-            <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
-            <OmitDefaultLibName>false</OmitDefaultLibName>
-            <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-            <WholeProgramOptimization>false</WholeProgramOptimization>
-            <ObjectFileName>x64\Debug\</ObjectFileName>
-            <CallingConvention>Cdecl</CallingConvention>
-            <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
-            <PrecompiledHeader>NotUsing</PrecompiledHeader>
-            <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-            <PrecompiledHeaderOutputFile>x64\Debug\StarlightEngine.pch</PrecompiledHeaderOutputFile>
-            <PreprocessToFile>false</PreprocessToFile>
-            <PreprocessKeepComments>false</PreprocessKeepComments>
-            <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
-            <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-            <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-            <ShowIncludes>false</ShowIncludes>
-            <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
-            <SuppressStartupBanner>true</SuppressStartupBanner>
-            <BufferSecurityCheck>true</BufferSecurityCheck>
-            <SmallerTypeCheck>false</SmallerTypeCheck>
-            <SpectreMitigation>false</SpectreMitigation>
-            <StructMemberAlignment>Default</StructMemberAlignment>
-            <TrackerLogDirectory>x64\Debug\StarlightEngine.tlog\</TrackerLogDirectory>
-            <TranslateIncludes>false</TranslateIncludes>
-            <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-            <TreatWarningAsError>false</TreatWarningAsError>
-            <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-            <UseFullPaths>true</UseFullPaths>
-            <WarningLevel>Level3</WarningLevel>
-            <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
-            <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-            <IntelJCCErratum>false</IntelJCCErratum>
-            <BuildStlModules>false</BuildStlModules>
-            <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-            <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-            <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-            <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-            <SDLCheck>true</SDLCheck>
-            <LinkCompiled>true</LinkCompiled>
-            <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='DebugEditor|Win32'">
-            </UseStandardPreprocessor>
-            <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='ReleaseGame|Win32'">
-            </UseStandardPreprocessor>
-            <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='DebugGame|Win32'">
-            </UseStandardPreprocessor>
-            <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='ReleaseEditor|Win32'">
-            </UseStandardPreprocessor>
-            <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='DebugEditor|x64'">
-            </UseStandardPreprocessor>
-            <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='ReleaseGame|x64'">
-            </UseStandardPreprocessor>
-            <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='DebugGame|x64'">
-            </UseStandardPreprocessor>
-            <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='ReleaseEditor|x64'">
-            </UseStandardPreprocessor>
-        </ClCompile>
-        <ClCompile Include="Source\Input\InputManager.cpp">
-            <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-            <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-            <Optimization>Disabled</Optimization>
-            <SupportJustMyCode>true</SupportJustMyCode>
-            <AssemblerOutput>NoListing</AssemblerOutput>
-            <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
-            <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-            <BrowseInformation>false</BrowseInformation>
-            <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
-            <CompileAs>Default</CompileAs>
-            <UseDynamicDebugging>false</UseDynamicDebugging>
-            <ConformanceMode>true</ConformanceMode>
-            <DiagnosticsFormat>Column</DiagnosticsFormat>
-            <DisableLanguageExtensions>false</DisableLanguageExtensions>
-            <ErrorReporting>Prompt</ErrorReporting>
-            <ExpandAttributedSource>false</ExpandAttributedSource>
-            <ExceptionHandling>Sync</ExceptionHandling>
-            <EnableASAN>false</EnableASAN>
-            <EnableFuzzer>false</EnableFuzzer>
-            <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
-            <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-            <EnableVectorLength>NotSet</EnableVectorLength>
-            <FloatingPointModel>Precise</FloatingPointModel>
-            <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-            <GenerateModuleDependencies>false</GenerateModuleDependencies>
-            <GenerateSourceDependencies>false</GenerateSourceDependencies>
-            <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-            <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-            <IntrinsicFunctions>false</IntrinsicFunctions>
-            <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-            <LanguageStandard>Default</LanguageStandard>
-            <LanguageStandard_C>Default</LanguageStandard_C>
-            <MinimalRebuild>false</MinimalRebuild>
-            <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
-            <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
-            <OmitDefaultLibName>false</OmitDefaultLibName>
-            <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-            <WholeProgramOptimization>false</WholeProgramOptimization>
-            <ObjectFileName>x64\Debug\</ObjectFileName>
-            <CallingConvention>Cdecl</CallingConvention>
-            <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
-            <PrecompiledHeader>NotUsing</PrecompiledHeader>
-            <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-            <PrecompiledHeaderOutputFile>x64\Debug\StarlightEngine.pch</PrecompiledHeaderOutputFile>
-            <PreprocessToFile>false</PreprocessToFile>
-            <PreprocessKeepComments>false</PreprocessKeepComments>
-            <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
-            <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-            <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-            <ShowIncludes>false</ShowIncludes>
-            <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
-            <SuppressStartupBanner>true</SuppressStartupBanner>
-            <BufferSecurityCheck>true</BufferSecurityCheck>
-            <SmallerTypeCheck>false</SmallerTypeCheck>
-            <SpectreMitigation>false</SpectreMitigation>
-            <StructMemberAlignment>Default</StructMemberAlignment>
-            <TrackerLogDirectory>x64\Debug\StarlightEngine.tlog\</TrackerLogDirectory>
-            <TranslateIncludes>false</TranslateIncludes>
-            <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-            <TreatWarningAsError>false</TreatWarningAsError>
-            <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-            <UseFullPaths>true</UseFullPaths>
-            <WarningLevel>Level3</WarningLevel>
-            <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
-            <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-            <IntelJCCErratum>false</IntelJCCErratum>
-            <BuildStlModules>false</BuildStlModules>
-            <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-            <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-            <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-            <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-            <SDLCheck>true</SDLCheck>
-            <LinkCompiled>true</LinkCompiled>
-        </ClCompile>
+        <ClCompile Include="Source\Engine\Engine.cpp"/>
+        <ClCompile Include="Source\Input\InputManager.cpp"/>
         <ClCompile Include="Source\Input\InputProcessor.cpp"/>
-        <ClCompile Include="Source\Main.cpp">
-            <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-            <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-            <Optimization>Disabled</Optimization>
-            <SupportJustMyCode>true</SupportJustMyCode>
-            <AssemblerOutput>NoListing</AssemblerOutput>
-            <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
-            <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-            <BrowseInformation>false</BrowseInformation>
-            <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
-            <CompileAs>Default</CompileAs>
-            <UseDynamicDebugging>false</UseDynamicDebugging>
-            <ConformanceMode>true</ConformanceMode>
-            <DiagnosticsFormat>Column</DiagnosticsFormat>
-            <DisableLanguageExtensions>false</DisableLanguageExtensions>
-            <ErrorReporting>Prompt</ErrorReporting>
-            <ExpandAttributedSource>false</ExpandAttributedSource>
-            <ExceptionHandling>Sync</ExceptionHandling>
-            <EnableASAN>false</EnableASAN>
-            <EnableFuzzer>false</EnableFuzzer>
-            <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
-            <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-            <EnableVectorLength>NotSet</EnableVectorLength>
-            <FloatingPointModel>Precise</FloatingPointModel>
-            <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-            <GenerateModuleDependencies>false</GenerateModuleDependencies>
-            <GenerateSourceDependencies>false</GenerateSourceDependencies>
-            <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-            <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-            <IntrinsicFunctions>false</IntrinsicFunctions>
-            <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-            <LanguageStandard>Default</LanguageStandard>
-            <LanguageStandard_C>Default</LanguageStandard_C>
-            <MinimalRebuild>false</MinimalRebuild>
-            <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
-            <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
-            <OmitDefaultLibName>false</OmitDefaultLibName>
-            <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-            <WholeProgramOptimization>false</WholeProgramOptimization>
-            <ObjectFileName>x64\Debug\</ObjectFileName>
-            <CallingConvention>Cdecl</CallingConvention>
-            <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
-            <PrecompiledHeader>NotUsing</PrecompiledHeader>
-            <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-            <PrecompiledHeaderOutputFile>x64\Debug\StarlightEngine.pch</PrecompiledHeaderOutputFile>
-            <PreprocessToFile>false</PreprocessToFile>
-            <PreprocessKeepComments>false</PreprocessKeepComments>
-            <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
-            <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-            <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-            <ShowIncludes>false</ShowIncludes>
-            <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
-            <SuppressStartupBanner>true</SuppressStartupBanner>
-            <BufferSecurityCheck>true</BufferSecurityCheck>
-            <SmallerTypeCheck>false</SmallerTypeCheck>
-            <SpectreMitigation>false</SpectreMitigation>
-            <StructMemberAlignment>Default</StructMemberAlignment>
-            <TrackerLogDirectory>x64\Debug\StarlightEngine.tlog\</TrackerLogDirectory>
-            <TranslateIncludes>false</TranslateIncludes>
-            <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-            <TreatWarningAsError>false</TreatWarningAsError>
-            <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-            <UseFullPaths>true</UseFullPaths>
-            <WarningLevel>Level3</WarningLevel>
-            <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
-            <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-            <IntelJCCErratum>false</IntelJCCErratum>
-            <BuildStlModules>false</BuildStlModules>
-            <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-            <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-            <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-            <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-            <SDLCheck>true</SDLCheck>
-            <LinkCompiled>true</LinkCompiled>
-        </ClCompile>
+        <ClCompile Include="Source\Main.cpp"/>
         <ClCompile Include="Source\Math\Math.cpp"/>
-        <ClCompile Include="Source\Renderer\Renderer.cpp">
-            <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-            <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-            <Optimization>Disabled</Optimization>
-            <SupportJustMyCode>true</SupportJustMyCode>
-            <AssemblerOutput>NoListing</AssemblerOutput>
-            <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
-            <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-            <BrowseInformation>false</BrowseInformation>
-            <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
-            <CompileAs>Default</CompileAs>
-            <UseDynamicDebugging>false</UseDynamicDebugging>
-            <ConformanceMode>true</ConformanceMode>
-            <DiagnosticsFormat>Column</DiagnosticsFormat>
-            <DisableLanguageExtensions>false</DisableLanguageExtensions>
-            <ErrorReporting>Prompt</ErrorReporting>
-            <ExpandAttributedSource>false</ExpandAttributedSource>
-            <ExceptionHandling>Sync</ExceptionHandling>
-            <EnableASAN>false</EnableASAN>
-            <EnableFuzzer>false</EnableFuzzer>
-            <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
-            <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-            <EnableVectorLength>NotSet</EnableVectorLength>
-            <FloatingPointModel>Precise</FloatingPointModel>
-            <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-            <GenerateModuleDependencies>false</GenerateModuleDependencies>
-            <GenerateSourceDependencies>false</GenerateSourceDependencies>
-            <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-            <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-            <IntrinsicFunctions>false</IntrinsicFunctions>
-            <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-            <LanguageStandard>Default</LanguageStandard>
-            <LanguageStandard_C>Default</LanguageStandard_C>
-            <MinimalRebuild>false</MinimalRebuild>
-            <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
-            <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
-            <OmitDefaultLibName>false</OmitDefaultLibName>
-            <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-            <WholeProgramOptimization>false</WholeProgramOptimization>
-            <ObjectFileName>x64\Debug\</ObjectFileName>
-            <CallingConvention>Cdecl</CallingConvention>
-            <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
-            <PrecompiledHeader>NotUsing</PrecompiledHeader>
-            <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-            <PrecompiledHeaderOutputFile>x64\Debug\StarlightEngine.pch</PrecompiledHeaderOutputFile>
-            <PreprocessToFile>false</PreprocessToFile>
-            <PreprocessKeepComments>false</PreprocessKeepComments>
-            <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
-            <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-            <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-            <ShowIncludes>false</ShowIncludes>
-            <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
-            <SuppressStartupBanner>true</SuppressStartupBanner>
-            <BufferSecurityCheck>true</BufferSecurityCheck>
-            <SmallerTypeCheck>false</SmallerTypeCheck>
-            <SpectreMitigation>false</SpectreMitigation>
-            <StructMemberAlignment>Default</StructMemberAlignment>
-            <TrackerLogDirectory>x64\Debug\StarlightEngine.tlog\</TrackerLogDirectory>
-            <TranslateIncludes>false</TranslateIncludes>
-            <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-            <TreatWarningAsError>false</TreatWarningAsError>
-            <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-            <UseFullPaths>true</UseFullPaths>
-            <WarningLevel>Level3</WarningLevel>
-            <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
-            <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-            <IntelJCCErratum>false</IntelJCCErratum>
-            <BuildStlModules>false</BuildStlModules>
-            <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-            <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-            <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-            <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-            <SDLCheck>true</SDLCheck>
-            <LinkCompiled>true</LinkCompiled>
-        </ClCompile>
+        <ClCompile Include="Source\Renderer\Renderer.cpp"/>
     </ItemGroup>
     <ItemGroup>
         <ClInclude Include="Source\Core\CoreMinimal.h"/>

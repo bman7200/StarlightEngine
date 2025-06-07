@@ -144,13 +144,13 @@ std::string Engine::Display::GetEngineTitleString_Configuration_Version()
 std::string Engine::Display::GetConfigurationTitleString()
 {
 	#if WITH_EDITOR
-	#if _DEBUG
+	#ifdef _DEBUG
 	return "Debug Editor";
 	#else
 	return "Release Editor";
 	#endif
 	#else
-	#if _DEBUG
+	#ifdef _DEBUG
 	return "Debug Game";
 	#else
 	return "Release Game";
