@@ -2,11 +2,15 @@
 
 #pragma once
 
+// Starlight Engine
+#include "CoreMinimal.h"
+#include "Keys.h"
+
 class InputProcessor
 {
 public:
 	InputProcessor();
 	~InputProcessor();
 
-	virtual HandleKeyDown();
+	virtual void HandleKeyDown(const SKey& Key) {}
 };

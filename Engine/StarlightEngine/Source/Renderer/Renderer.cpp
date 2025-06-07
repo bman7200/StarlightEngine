@@ -29,7 +29,7 @@ bool Renderer::Initialise(SDL_Window* Window)
 		std::cerr << "Renderer: SDL_CreateRenderer failed! SDL_Error: " << SDL_GetError() << '\n';
 		// BHH TODO: Throw an exception
 	}
-	
+
 	SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
 	return true;
 }
@@ -45,16 +45,20 @@ void Renderer::Shutdown()
 
 void Renderer::Clear()
 {
-	if (m_renderer != nullptr)
+	if (m_renderer == nullptr)
 	{
-		SDL_RenderClear(m_renderer);
+		return;
 	}
+
+	SDL_RenderClear(m_renderer);
 }
 
 void Renderer::Present()
 {
-	if (m_renderer != nullptr)
+	if (m_renderer == nullptr)
 	{
-		SDL_RenderPresent(m_renderer);
+		return;
 	}
+
+	SDL_RenderPresent(m_renderer);
 }

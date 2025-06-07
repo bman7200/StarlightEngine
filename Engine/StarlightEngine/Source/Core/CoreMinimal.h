@@ -2,5 +2,8 @@
 
 #pragma once
 
+// Starlight Engine
 #include "Math/Math.h"
 #include "Engine/Engine.h"
+#include "Object/SObject.h"
+#include "Debug/Logging.h"

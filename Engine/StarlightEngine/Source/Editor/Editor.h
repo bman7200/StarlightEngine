@@ -2,8 +2,7 @@
 
 #pragma once
 
-#if WITH_EDITOR
+#pragma WITH_EDITOR
 
+// Starlight Engine
 #include "CoreMinimal.h"
-
-#endif

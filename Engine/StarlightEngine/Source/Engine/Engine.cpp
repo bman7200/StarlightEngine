@@ -10,12 +10,10 @@
 #include <SDL3/SDL_render.h>
 #include <string>
 
-// Starlight
+// Starlight Engine
+#include "Debug/Logging.h"
 #include "Input/InputManager.h"
 #include "Renderer/Renderer.h"
-
-#define LOG_ENGINE_START_FUNCTION std::cout << "Engine: Starting " << __FUNCTION__ << '\n'
-#define LOG_ENGINE_COMPLETE_FUNCTION std::cout << "Engine: Completed " << __FUNCTION__ << '\n'
 
 Engine::Engine() :
 	m_mainWindow(nullptr)
@@ -37,7 +35,7 @@ Engine::~Engine()
 
 bool Engine::Initialise()
 {
-	LOG_ENGINE_START_FUNCTION;
+	SL_LOG_FUNC_SCOPE;
 
 	if (InitialiseMainWindow() == false)
 	{
@@ -49,36 +47,33 @@ bool Engine::Initialise()
 		return false;
 	}
 
-	LOG_ENGINE_COMPLETE_FUNCTION;
 	return true;
 }
 
 void Engine::Shutdown()
 {
-	LOG_ENGINE_START_FUNCTION;
+	SL_LOG_FUNC_SCOPE;
 
 	ShutdownMainWindow();
-
-	LOG_ENGINE_COMPLETE_FUNCTION;
 }
 
 bool Engine::InitialiseMainWindow()
 {
-	LOG_ENGINE_START_FUNCTION;
+	SL_LOG_FUNC_SCOPE;
 
 	const SDL_PropertiesID MainWindowProperties = SDL_CreateProperties();
-#if WITH_EDITOR
+	#if WITH_EDITOR
 	SDL_SetStringProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_TITLE_STRING, Display::GetEngineTitleString_Configuration_Version().c_str());
 	SDL_SetNumberProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_WIDTH_NUMBER, 800);
 	SDL_SetNumberProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER, 600);
 
 	constexpr Sint64 MainWindowFlags = SDL_WINDOW_RESIZABLE | SDL_WINDOW_MAXIMIZED;
 	SDL_SetNumberProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_FLAGS_NUMBER, MainWindowFlags);
-#else
+	#else
 	SDL_SetStringProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_TITLE_STRING, "Game Project Name");
 	SDL_SetNumberProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_WIDTH_NUMBER, 800);
 	SDL_SetNumberProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER, 600);
-#endif
+	#endif
 
 	m_mainWindow = SDL_CreateWindowWithProperties(MainWindowProperties);
 	SDL_DestroyProperties(MainWindowProperties);
@@ -93,18 +88,15 @@ bool Engine::InitialiseMainWindow()
 	// Renderer
 	m_mainRenderer.Initialise(m_mainWindow);
 
-	LOG_ENGINE_COMPLETE_FUNCTION;
 	return true;
 }
 
 void Engine::ShutdownMainWindow()
 {
-	LOG_ENGINE_START_FUNCTION;
+	SL_LOG_FUNC_SCOPE;
 
 	m_mainRenderer.Shutdown();
 	SDL_DestroyWindow(m_mainWindow);
-
-	LOG_ENGINE_COMPLETE_FUNCTION;
 }
 
 void Engine::Tick(bool& IsRunning, float DeltaTime)
@@ -151,17 +143,17 @@ std::string Engine::Display::GetEngineTitleString_Configuration_Version()
 
 std::string Engine::Display::GetConfigurationTitleString()
 {
-#if WITH_EDITOR
-#if _DEBUG
+	#if WITH_EDITOR
+	#if _DEBUG
 	return "Debug Editor";
-#else
+	#else
 	return "Release Editor";
-#endif
-#else
-#if _DEBUG
+	#endif
+	#else
+	#if _DEBUG
 	return "Debug Game";
-#else
+	#else
 	return "Release Game";
-#endif
-#endif
+	#endif
+	#endif
 }

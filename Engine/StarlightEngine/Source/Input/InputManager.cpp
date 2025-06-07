@@ -6,6 +6,9 @@
 // Libraries
 #include <iostream>
 
+// Starlight Engine
+#include "Debug/Logging.h"
+
 InputManager::InputManager()
 {
 	// Construction goes here
@@ -35,10 +38,9 @@ void InputManager::ProcessEvents(bool& IsRunning)
 		{
 		case SDL_EVENT_QUIT:
 			IsRunning = false;
-			std::cout << "InputManager: Quit event received. Shutting down." << '\n';
+			SL_LOG_FUNC("SDL_EVENT_QUIT received. Shutting down engine.");
 			break;
 		case SDL_EVENT_MOUSE_BUTTON_DOWN:
-			
 			break;
 		default:
 			break;
