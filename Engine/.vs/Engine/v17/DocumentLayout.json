@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\StarlightEngine\\Engine\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E3F65BB3-BF6A-40C9-B2C9-1CFF0D8F7FB5}|StarlightEngine\\StarlightEngine.vcxproj|D:\\StarlightEngine\\Engine\\StarlightEngine\\Source\\Engine\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E3F65BB3-BF6A-40C9-B2C9-1CFF0D8F7FB5}|StarlightEngine\\StarlightEngine.vcxproj|solutionrelative:StarlightEngine\\Source\\Engine\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3F65BB3-BF6A-40C9-B2C9-1CFF0D8F7FB5}|StarlightEngine\\StarlightEngine.vcxproj|D:\\StarlightEngine\\Engine\\StarlightEngine\\Source\\Engine\\Engine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E3F65BB3-BF6A-40C9-B2C9-1CFF0D8F7FB5}|StarlightEngine\\StarlightEngine.vcxproj|solutionrelative:StarlightEngine\\Source\\Engine\\Engine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3F65BB3-BF6A-40C9-B2C9-1CFF0D8F7FB5}|StarlightEngine\\StarlightEngine.vcxproj|D:\\StarlightEngine\\Engine\\StarlightEngine\\Source\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E3F65BB3-BF6A-40C9-B2C9-1CFF0D8F7FB5}|StarlightEngine\\StarlightEngine.vcxproj|solutionrelative:StarlightEngine\\Source\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Engine.h",
+              "DocumentMoniker": "D:\\StarlightEngine\\Engine\\StarlightEngine\\Source\\Engine\\Engine.h",
+              "RelativeDocumentMoniker": "StarlightEngine\\Source\\Engine\\Engine.h",
+              "ToolTip": "D:\\StarlightEngine\\Engine\\StarlightEngine\\Source\\Engine\\Engine.h",
+              "RelativeToolTip": "StarlightEngine\\Source\\Engine\\Engine.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-06-07T03:41:58.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Engine.cpp",
+              "DocumentMoniker": "D:\\StarlightEngine\\Engine\\StarlightEngine\\Source\\Engine\\Engine.cpp",
+              "RelativeDocumentMoniker": "StarlightEngine\\Source\\Engine\\Engine.cpp",
+              "ToolTip": "D:\\StarlightEngine\\Engine\\StarlightEngine\\Source\\Engine\\Engine.cpp",
+              "RelativeToolTip": "StarlightEngine\\Source\\Engine\\Engine.cpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-07T03:36:06.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Main.cpp",
+              "DocumentMoniker": "D:\\StarlightEngine\\Engine\\StarlightEngine\\Source\\Main.cpp",
+              "RelativeDocumentMoniker": "StarlightEngine\\Source\\Main.cpp",
+              "ToolTip": "D:\\StarlightEngine\\Engine\\StarlightEngine\\Source\\Main.cpp",
+              "RelativeToolTip": "StarlightEngine\\Source\\Main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-07T02:34:45.821Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

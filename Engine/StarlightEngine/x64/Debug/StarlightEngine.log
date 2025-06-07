@@ -1,0 +1,3 @@
+﻿  StarlightEngine.cpp
+D:\StarlightEngine\Engine\StarlightEngine\StarlightEngine.cpp(6,17): warning C4804: '<': unsafe use of type 'bool' in operation
+  StarlightEngine.vcxproj -> D:\StarlightEngine\Engine\x64\Debug\StarlightEngine.exe
