@@ -45,8 +45,12 @@ public:
 	{
 	public:
 		static std::string GetEngineTitleString();
-		static std::string GetConfigurationTitleString();
 		static std::string GetEngineTitleString_Configuration();
 		static std::string GetEngineTitleString_Configuration_Version();
+
+		static std::string GetConfigurationTitleString();
 	};
 };
+
+// Global Engine Instance
+static Engine* GEngine = nullptr;

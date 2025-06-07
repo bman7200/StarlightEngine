@@ -257,6 +257,7 @@
         </Link>
     </ItemDefinitionGroup>
     <ItemGroup>
+        <ClCompile Include="Source\Core\SObject.cpp"/>
         <ClCompile Include="Source\Engine\Engine.cpp">
             <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
             <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -579,6 +580,7 @@
     <ItemGroup>
         <ClInclude Include="Source\Core\CoreEditor.h"/>
         <ClInclude Include="Source\Core\CoreMinimal.h"/>
+        <ClInclude Include="Source\Core\SObject.h"/>
         <ClInclude Include="Source\Engine\Engine.h"/>
         <ClInclude Include="Source\Input\InputManager.h"/>
         <ClInclude Include="Source\Input\InputProcessor.h"/>

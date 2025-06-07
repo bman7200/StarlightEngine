@@ -20,7 +20,14 @@
 Engine::Engine() :
 	m_mainWindow(nullptr)
 {
-	// Do nothing for now
+	if (GEngine == nullptr)
+	{
+		GEngine = this;
+	}
+	else
+	{
+		delete this;
+	}
 }
 
 Engine::~Engine()
@@ -132,6 +139,16 @@ std::string Engine::Display::GetEngineTitleString()
 	return "Starlight Engine";
 }
 
+std::string Engine::Display::GetEngineTitleString_Configuration()
+{
+	return GetEngineTitleString() + " [" + GetConfigurationTitleString() + "]";
+}
+
+std::string Engine::Display::GetEngineTitleString_Configuration_Version()
+{
+	return GetEngineTitleString_Configuration() + " ✦ V" + Version::GetVersionString();
+}
+
 std::string Engine::Display::GetConfigurationTitleString()
 {
 #if WITH_EDITOR
@@ -147,14 +164,4 @@ std::string Engine::Display::GetConfigurationTitleString()
 	return "Release Game";
 #endif
 #endif
-}
-
-std::string Engine::Display::GetEngineTitleString_Configuration()
-{
-	return GetEngineTitleString() + " [" + GetConfigurationTitleString() + "]";
-}
-
-std::string Engine::Display::GetEngineTitleString_Configuration_Version()
-{
-	return GetEngineTitleString_Configuration() + " ✦ V" + Version::GetVersionString();
 }
