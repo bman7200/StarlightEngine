@@ -278,7 +278,7 @@
         <ClInclude Include="Source\Engine\Engine.h"/>
         <ClInclude Include="Source\Input\InputManager.h"/>
         <ClInclude Include="Source\Input\InputProcessor.h"/>
-        <ClInclude Include="Source\Input\Keys.h"/>
+        <ClInclude Include="Source\Input\InputID.h"/>
         <ClInclude Include="Source\Math\Math.h"/>
         <ClInclude Include="Source\Renderer\Renderer.h"/>
     </ItemGroup>
