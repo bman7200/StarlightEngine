@@ -3,18 +3,123 @@
 #pragma once
 
 // Libraries
-#include <cmath>
 #include <iostream>
-#include <limits>
+#include <SDL3/SDL_stdinc.h>
 
 
-namespace Math
+namespace SMath
 {
 	// Define a small epsilon for floating point comparisons
-	constexpr float EPSILON = std::numeric_limits<float>::epsilon();
-	constexpr float PI = 3.14159265359f;
+	constexpr float EPSILON = SDL_FLT_EPSILON;
+	constexpr float PI = SDL_PI_F;
 	constexpr float TWO_PI = 2.0f * PI;
 	constexpr float HALF_PI = 0.5f * PI;
+
+	// Absolute Value
+	inline float Abs(const float Value)
+	{
+		return SDL_fabsf(Value);
+	}
+
+	// Check if floats are safely equal
+	inline bool NearlyEqual(const float A, const float B, const float Epsilon = EPSILON)
+	{
+		return Abs(A - B) < Epsilon;
+	}
+
+	// Round
+	inline float Round(const float Value)
+	{
+		return SDL_roundf(Value);
+	}
+
+	// Truncates the decimal. Basically, rounds towards zero.
+	inline float Trunc(const float Value)
+	{
+		return SDL_truncf(Value);
+	}
+
+	inline float Floor(const float Value)
+	{
+		return SDL_floorf(Value);
+	}
+
+	inline float Ceil(const float Value)
+	{
+		return SDL_ceilf(Value);
+	}
+
+	inline float Mod(const float A, const float B)
+	{
+		return SDL_fmodf(A, B);
+	}
+
+	inline float Clamp(const float Value, const float Min, const float Max)
+	{
+		return SDL_clamp(Value, Min, Max);
+	}
+
+	inline float Min(const float A, const float B)
+	{
+		return SDL_min(A, B);
+	}
+
+	inline float Max(const float A, const float B)
+	{
+		return SDL_max(A, B);
+	}
+
+	// Returns the Value from A to B, depending on Alpha from 0 to 1 respectively.
+	inline float Lerp(const float A, const float B, const float Alpha)
+	{
+		return (B - A) * Alpha + A;
+	}
+
+	// Gives you the Alpha from 0 to 1, depending on the Value from A to B respectively.
+	inline float InverseLerp(const float Value, const float A, const float B)
+	{
+		if (NearlyEqual(A, B))
+		{
+			return 0;
+		}
+
+		return Value - A / (B - A);
+	}
+
+	// Remaps the Value proportionally from the Start range, to the End range.
+	inline float RemapRange(const float Value, const float StartMin, const float StartMax, const float EndMin, const float EndMax)
+	{
+		if (NearlyEqual(StartMin, StartMax))
+		{
+			return EndMin;
+		}
+
+		return (Value - StartMin) / (StartMax - StartMin) * (EndMax - EndMin) + EndMin;
+	}
+
+	// Square Root
+	inline float Sqrt(const float Value)
+	{
+		return SDL_sqrtf(Value);
+	}
+
+	// Power
+	inline float Power(const float Value, const float Power)
+	{
+		return SDL_powf(Value, Power);
+	}
+
+	// Exponential
+	inline float Exp(const float Value)
+	{
+		return SDL_expf(Value);
+	}
+
+	// Natural Logarithm
+	inline float Log(const float Value)
+	{
+		return SDL_logf(Value);
+	}
 
 	/**
 	 * @brief Converts degrees to radians.
@@ -34,6 +139,36 @@ namespace Math
 	inline float RadiansToDegrees(const float Radians)
 	{
 		return Radians * (180.0f / PI);
+	}
+
+	inline float Sin(const float Radians)
+	{
+		return SDL_sinf(Radians);
+	}
+
+	inline float Cos(const float Radians)
+	{
+		return SDL_cosf(Radians);
+	}
+
+	inline float Tan(const float Radians)
+	{
+		return SDL_tanf(Radians);
+	}
+
+	inline float ASin(const float Radians)
+	{
+		return SDL_asinf(Radians);
+	}
+
+	inline float ACos(const float Radians)
+	{
+		return SDL_acosf(Radians);
+	}
+
+	inline float ATan(const float Radians)
+	{
+		return SDL_atanf(Radians);
 	}
 
 	/**
@@ -86,7 +221,7 @@ namespace Math
 
 		bool operator==(const Vector2& Other) const
 		{
-			return fabsf(x - Other.x) < EPSILON && fabsf(y - Other.y) < EPSILON;
+			return NearlyEqual(x, Other.x) && NearlyEqual(y, Other.y);
 		}
 
 		bool operator!=(const Vector2& Other) const
@@ -203,14 +338,14 @@ namespace Math
 			return *this;
 		}
 
-		bool operator==(const Vector3& other) const
+		bool operator==(const Vector3& Other) const
 		{
-			return fabsf(x - other.x) < EPSILON && fabsf(y - other.y) < EPSILON && fabsf(z - other.z) < EPSILON;
+			return NearlyEqual(x, Other.x) && NearlyEqual(y, Other.y) && NearlyEqual(z, Other.z);
 		}
 
-		bool operator!=(const Vector3& other) const
+		bool operator!=(const Vector3& Other) const
 		{
-			return !(*this == other);
+			return !(*this == Other);
 		}
 
 		/**

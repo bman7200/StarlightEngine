@@ -3,18 +3,19 @@
 #pragma once
 
 // Libraries
+#include <string>
 #include <SDL3/SDL_video.h>
 
 // Engine
-#include "../Input/InputManager.h"
-#include "../Renderer/Renderer.h"
+#include "Input/InputManager.h"
+#include "Renderer/Renderer.h"
 
 class Engine
 {
 public:
 	Engine();
 	~Engine();
-	
+
 	bool Initialise();
 	void Shutdown();
 
@@ -29,4 +30,23 @@ private:
 public:
 	void Tick(bool& IsRunning, float DeltaTime);
 	void Render();
+
+	class Version
+	{
+	public:
+		static constexpr int MAJOR = 1;
+		static constexpr int MINOR = 0;
+		static constexpr int PATCH = 0;
+
+		static std::string GetVersionString();
+	};
+
+	class Display
+	{
+	public:
+		static std::string GetEngineTitleString();
+		static std::string GetConfigurationTitleString();
+		static std::string GetEngineTitleString_Configuration();
+		static std::string GetEngineTitleString_Configuration_Version();
+	};
 };
