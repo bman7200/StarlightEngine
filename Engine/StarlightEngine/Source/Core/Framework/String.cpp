@@ -237,6 +237,33 @@ void FString::TrimWhitespace()
 	Data[Length] = '\0';
 }
 
+void FString::RemoveChars(int Count, bool bFromStart)
+{
+	if (Count <= 0 || IsEmpty())
+	{
+		return;
+	}
+
+	if (Count >= GetLength())
+	{
+		Clear();
+		return;
+	}
+
+	if (bFromStart)
+	{
+		const size_t NewLength = Length - Count;
+		memmove(Data, Data + Count, NewLength);
+		Length = NewLength;
+	}
+	else
+	{
+		Length -= Count;
+	}
+
+	Data[Length] = '\0';
+}
+
 void FString::Clear()
 {
 	Length = 0;

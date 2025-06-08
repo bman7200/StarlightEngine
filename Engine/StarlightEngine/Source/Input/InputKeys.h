@@ -122,12 +122,12 @@ struct FInputKey
 		return !(*this == Other);
 	}
 
-	std::string ToString() const
+	FString ToString() const
 	{
 		switch (Type)
 		{
 		case EInputKeyType::KeyboardButton:
-			return "Keyboard_" + std::string(SDL_GetKeyName(ButtonCode));
+			return "Keyboard_" + FString(SDL_GetKeyName(ButtonCode));
 
 		case EInputKeyType::MouseButton:
 			switch (ButtonCode)
@@ -169,18 +169,18 @@ struct FInputKey
 			return "MouseAxis2D_XY";
 
 		case EInputKeyType::GamepadButton:
-			return "GamepadButton_" + std::string(SDL_GetGamepadStringForButton(GamepadButton));
+			return "GamepadButton_" + FString(SDL_GetGamepadStringForButton(GamepadButton));
 
 		case EInputKeyType::GamepadTriggerAxis:
-			return "GamepadTriggerAxis_" + std::string(SDL_GetGamepadStringForAxis(GamepadAxis));
+			return "GamepadTriggerAxis_" + FString(SDL_GetGamepadStringForAxis(GamepadAxis));
 
 		case EInputKeyType::GamepadJoystickAxis1D:
-			return "GamepadJoystickAxis1D_" + std::string(SDL_GetGamepadStringForAxis(GamepadAxis));
+			return "GamepadJoystickAxis1D_" + FString(SDL_GetGamepadStringForAxis(GamepadAxis));
 
 		case EInputKeyType::GamepadJoystickAxis2D:
 			{
-				std::string AxisString = SDL_GetGamepadStringForAxis(GamepadAxis);
-				AxisString.pop_back();
+				FString AxisString = SDL_GetGamepadStringForAxis(GamepadAxis);
+				AxisString.RemoveChars(1);
 				return "GamepadJoystickAxis2D_" + AxisString + "XY";
 			}
 

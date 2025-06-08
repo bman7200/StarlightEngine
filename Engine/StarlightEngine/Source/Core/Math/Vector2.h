@@ -122,6 +122,18 @@ inline FVector2 operator*(const float scalar, const FVector2& vec)
 	return FVector2(vec.x * scalar, vec.y * scalar);
 }
 
+template <>
+struct std::hash<FVector2>
+{
+	size_t operator()(const FVector2& Vector) const noexcept
+	{
+		const size_t h1 = std::hash<float>{}(Vector.x);
+		const size_t h2 = std::hash<float>{}(Vector.y);
+
+		return h1 ^ (h2 << 1);
+	}
+};
+
 namespace SMath
 {
 inline bool NearlyEqual(const FVector2& A, const FVector2& B, const float Epsilon)

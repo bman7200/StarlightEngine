@@ -46,6 +46,13 @@ struct FString
 	 */
 	void TrimWhitespace();
 
+	/**
+	 * @brief Removes a specified number of characters from the start or end of the string.
+	 * @param Count The number of characters to remove.
+	 * @param bFromStart If true, removes from the start; if false, removes from the end.
+	 */
+	void RemoveChars(int Count, bool bFromStart = true);
+
 	void Clear();
 
 private:
