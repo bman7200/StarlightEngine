@@ -60,14 +60,28 @@ T Clamp(const T Value, const T Min, const T Max)
 	return SDL_clamp(Value, Min, Max);
 }
 
-inline float Min(const float A, const float B)
+template <typename T = float>
+T Min(const T A, const T B)
 {
 	return SDL_min(A, B);
 }
 
-inline float Max(const float A, const float B)
+template <typename T = float>
+T Min(const T A, const T B, const T C)
+{
+	return Min(Min(A, B), C);
+}
+
+template <typename T = float>
+T Max(const T A, const T B)
 {
 	return SDL_max(A, B);
+}
+
+template <typename T = float>
+T Max(const T A, const T B, const T C)
+{
+	return Max(Max(A, B), C);
 }
 
 // Returns the Value from A to B, depending on Alpha from 0 to 1 respectively.

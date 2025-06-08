@@ -274,6 +274,7 @@
         <ClInclude Include="Source\Core\Debug\Logging.h"/>
         <ClInclude Include="Source\Core\Framework\Color.h"/>
         <ClInclude Include="Source\Core\Framework\String.h"/>
+        <ClInclude Include="Source\Core\Hash.h"/>
         <ClInclude Include="Source\Core\Math\Math.h"/>
         <ClInclude Include="Source\Core\Math\Vector2.h"/>
         <ClInclude Include="Source\Core\Math\Vector3.h"/>

@@ -8,6 +8,8 @@
 #include <SDL3/SDL_keycode.h>
 #include <SDL3/SDL_mouse.h>
 
+#include "Hash.h"
+
 enum class EInputKeyType : Uint8
 {
 	Unknown = 0,
@@ -198,10 +200,10 @@ struct hash<FInputGamepadAxisPair>
 {
 	size_t operator()(const FInputGamepadAxisPair& GamepadAxisPair) const noexcept
 	{
-		size_t h1 = std::hash<int>{}(GamepadAxisPair.Horizontal);
-		size_t h2 = std::hash<int>{}(GamepadAxisPair.Vertical);
-
-		return h1 ^ (h2 << 1);
+		size_t seed = 0;
+		HashCombine(seed, GamepadAxisPair.Horizontal);
+		HashCombine(seed, GamepadAxisPair.Vertical);
+		return seed;
 	}
 };
 
@@ -210,45 +212,42 @@ struct hash<FInputKey>
 {
 	size_t operator()(const FInputKey& InputKey) const noexcept
 	{
-		size_t h1 = std::hash<Uint8>{}(static_cast<Uint8>(InputKey.Type));
-		size_t h2;
+		size_t seed = std::hash<Uint8>{}(static_cast<Uint8>(InputKey.Type));
 
-		// Hash the specific value based on type
+		// Come the hash with the specific active member of the union based on type
 		switch (InputKey.Type)
 		{
 		case EInputKeyType::KeyboardButton:
 		case EInputKeyType::MouseButton:
-			h2 = std::hash<int>{}(static_cast<int>(InputKey.ButtonCode));
+			HashCombine(seed, static_cast<int>(InputKey.ButtonCode));
 			break;
 
 		case EInputKeyType::MouseAxis1D:
-			h2 = std::hash<int>{}(static_cast<int>(InputKey.AxisOrientation));
+			HashCombine(seed, static_cast<int>(InputKey.AxisOrientation));
 			break;
 
 		case EInputKeyType::MouseAxis2D:
-			return h1;
+			break; // type only - no union data
 
 		case EInputKeyType::GamepadButton:
-			h2 = std::hash<int>{}(InputKey.GamepadButton);
+			HashCombine(seed, InputKey.GamepadButton);
 			break;
 
 		case EInputKeyType::GamepadTriggerAxis:
 		case EInputKeyType::GamepadJoystickAxis1D:
-			h2 = std::hash<int>{}(InputKey.GamepadAxis);
+			HashCombine(seed, InputKey.GamepadAxis);
 			break;
 
 		case EInputKeyType::GamepadJoystickAxis2D:
-			h2 = std::hash<FInputGamepadAxisPair>{}(InputKey.GamepadAxisPair);
+			HashCombine(seed, InputKey.GamepadAxisPair);
 			break;
 
 		case EInputKeyType::Unknown:
-		default:
-			h2 = std::hash<int>{}(InputKey.RawValue); // Hash the raw value for unknown
+			HashCombine(seed, InputKey.RawValue); // Hash the raw value for unknown
 			break;
 		}
-		// Combine hashes. A common way is using boost::hash_combine or similar
-		// Simple XOR or sum can lead to collisions, but good enough for a start
-		return h1 ^ (h2 << 1); // Simple hash combine
+
+		return seed;
 	}
 };
 }
