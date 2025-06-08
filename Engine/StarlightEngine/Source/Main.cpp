@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 	// Initialize the SDL library
 	if (SDL_Init(SDL_INIT_VIDEO) == false)
 	{
-		std::cout << "SDL could not be initialized! SDL_Error: " << SDL_GetError() << '\n';
+		std::cout << "SDL could not be initialized! SDL_Error: " << SDL_GetError() << std::endl;
 		return 1;
 	}
 

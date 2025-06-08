@@ -81,7 +81,7 @@ bool Engine::InitialiseMainWindow()
 	if (m_mainWindow == nullptr)
 	{
 		// BHH TODO: Throw an exception.
-		// std::cout << "MainWindow could not be created! SDL_Error: " << SDL_GetError() << '\n';
+		std::cout << "MainWindow could not be created! SDL_Error: " << SDL_GetError() << std::endl;
 		return false;
 	}
 

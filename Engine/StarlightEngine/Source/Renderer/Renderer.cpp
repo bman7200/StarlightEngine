@@ -20,13 +20,13 @@ bool Renderer::Initialise(SDL_Window* Window)
 {
 	if (Window == nullptr)
 	{
-		std::cerr << "Renderer: Initialise failed because Window is invalid!" << '\n';
+		std::cerr << "Renderer: Initialise failed because Window is invalid!" << std::endl;
 	}
 
 	m_renderer = SDL_CreateRenderer(Window, nullptr);
 	if (m_renderer == nullptr)
 	{
-		std::cerr << "Renderer: SDL_CreateRenderer failed! SDL_Error: " << SDL_GetError() << '\n';
+		std::cerr << "Renderer: SDL_CreateRenderer failed! SDL_Error: " << SDL_GetError() << std::endl;
 		// BHH TODO: Throw an exception
 	}
 
