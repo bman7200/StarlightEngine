@@ -36,16 +36,22 @@ This document outlines that naming conventions that were used when developing th
 #### Examples:
 * `IInputHandler`: Can take input.
 
+### X - Extensions
+`X` is used for **extensions**, which are classes intended not to be the base class, but to provide repeated functionality with base implementations.
+#### Examples:
+* `XSerializable`: Provides serialization functions
+
+### S - Shared
+`S` is used for **shared** pointers or logic related to shared types from the std library.
+#### Examples:
+* `SObjectPtr`: This is a shared pointer for SObjects. It's the equivalent of TObjectPtr<SObject>
+* `SObjectWeakPtr`: This is a weak pointer for SObjects. It's the equivalent of TObjectWeakPtr<SObject>
+
 ### T - Templates
 `T` is used for **templated** types. This convention is case-by-case, as it may make more sense to keep other prefix conventions based on how it's used.
 #### Examples:
 * `TObjectPtr`: This is a shared pointer template for objects of base SObject.
 * `TObjectWeakPtr`: This is a weak pointer template for objects of base SObject.
-
-### X - Extensions
-`X` is used for **extensions**, which are classes intended not to be the base class, but to provide repeated functionality with base implementations.
-#### Examples:
-* `XSerializable`: Provides serialization functions
 
 ---
 
