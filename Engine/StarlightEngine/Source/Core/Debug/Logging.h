@@ -4,15 +4,24 @@
 
 #ifdef _DEBUG
 
+// Libraries
 #include <iostream>
+#include <utility>
+
+// Starlight Engine
+#include "Framework/String.h"
+
+// Log message
 #define SL_LOG(message) std::cout << "SL: " << (message) << std::endl
-#define SL_LOG_FUNC(message) std::cout << "SL: " << __FUNCTION__ << " - " << (message) << std::endl
+
+// Log message with function name
+#define SL_LOG_FUNC(message) SL_LOG(FString(__FUNCTION__) + " - " + (message))
 
 struct DebugFunctionScope
 {
-	DebugFunctionScope(const FString& InFunctionName)
+	DebugFunctionScope(FString InFunctionName)
 	{
-		FunctionName = InFunctionName;
+		FunctionName = std::move(InFunctionName);
 		SL_LOG(FunctionName + FString(" Started"));
 	}
 

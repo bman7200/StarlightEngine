@@ -33,5 +33,5 @@ template <typename T>
 static TObjectPtr<T> NewObject(SObjectPtr Outer)
 {
 	static_assert(is_sobject_derived<T>::value, "NewObject can only be used with types derived from SObject");
-	return TMakeShared<T>(Outer);
+	return std::make_shared<T>(Outer);
 }

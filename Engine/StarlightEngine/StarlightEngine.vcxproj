@@ -257,6 +257,7 @@
         </Link>
     </ItemDefinitionGroup>
     <ItemGroup>
+        <ClCompile Include="Source\Core\Framework\Color.cpp"/>
         <ClCompile Include="Source\Core\Framework\String.cpp"/>
         <ClCompile Include="Source\Core\Math\Math.cpp"/>
         <ClCompile Include="Source\Core\Object\GameInstance.cpp"/>
@@ -271,8 +272,11 @@
     <ItemGroup>
         <ClInclude Include="Source\Core\CoreMinimal.h"/>
         <ClInclude Include="Source\Core\Debug\Logging.h"/>
+        <ClInclude Include="Source\Core\Framework\Color.h"/>
         <ClInclude Include="Source\Core\Framework\String.h"/>
         <ClInclude Include="Source\Core\Math\Math.h"/>
+        <ClInclude Include="Source\Core\Math\Vector2.h"/>
+        <ClInclude Include="Source\Core\Math\Vector3.h"/>
         <ClInclude Include="Source\Core\Object\GameInstance.h"/>
         <ClInclude Include="Source\Core\Object\Object.h"/>
         <ClInclude Include="Source\Core\Object\World.h"/>

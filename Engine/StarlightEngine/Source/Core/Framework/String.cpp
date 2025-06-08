@@ -103,6 +103,19 @@ FString FString::operator+(const FString& Other) const
 	return NewString;
 }
 
+FString FString::operator+(const char* InString) const
+{
+	FString NewString;
+	NewString.Length = Length + strlen(InString);
+	delete[] NewString.Data;
+	NewString.Data = new char[NewString.Length + 1];
+
+	strcpy_s(NewString.Data, NewString.Length + 1, Data);
+	strcat_s(NewString.Data, NewString.Length + 1, InString);
+
+	return NewString;
+}
+
 FString& FString::operator+=(const FString& Other)
 {
 	if (Other.Length == 0)
@@ -115,6 +128,27 @@ FString& FString::operator+=(const FString& Other)
 
 	strcpy_s(NewData, NewLength + 1, Data);
 	strcat_s(NewData, NewLength + 1, Other.Data);
+
+	delete[] Data;
+
+	Data = NewData;
+	Length = NewLength;
+
+	return *this;
+}
+
+FString& FString::operator+=(const char* InString)
+{
+	if (strlen(InString) == 0)
+	{
+		return *this;
+	}
+
+	size_t NewLength = Length + strlen(InString);
+	auto NewData = new char[NewLength + 1];
+
+	strcpy_s(NewData, NewLength + 1, Data);
+	strcat_s(NewData, NewLength + 1, InString);
 
 	delete[] Data;
 
@@ -207,4 +241,9 @@ void FString::Clear()
 {
 	Length = 0;
 	Data[0] = '\0';
+}
+
+FString operator+(const char* InString, const FString& Other)
+{
+	return FString(InString) + Other;
 }

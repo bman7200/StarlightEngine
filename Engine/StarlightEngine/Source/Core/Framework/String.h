@@ -4,6 +4,7 @@
 
 // Libraries
 #include <ostream>
+#include <string>
 
 // Wrapper class for all strings and string manipulation
 struct FString
@@ -13,6 +14,8 @@ struct FString
 	FString(const FString& Other);
 	FString(FString&& Other) noexcept;
 
+	FString(const std::string& InString) : FString(InString.c_str()) {}
+
 	~FString();
 
 	FString& operator=(const FString& Other);
@@ -20,7 +23,9 @@ struct FString
 	FString& operator=(const char* InString);
 
 	FString operator+(const FString& Other) const;
+	FString operator+(const char* InString) const;
 	FString& operator+=(const FString& Other);
+	FString& operator+=(const char* InString);
 
 	bool operator==(const FString& Other) const;
 	bool operator!=(const FString& Other) const;
@@ -46,4 +51,13 @@ struct FString
 private:
 	char* Data;
 	size_t Length;
+
+public:
+	FString(const int Value) : FString(std::to_string(Value).c_str()) {}
+	FString(const float Value) : FString(std::to_string(Value).c_str()) {}
+
+	template <typename T>
+	FString(const T& Object) : FString(Object.ToString()) {}
 };
+
+FString operator+(const char* InString, const FString& Other);
