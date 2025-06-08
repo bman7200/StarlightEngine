@@ -36,6 +36,12 @@ This document outlines that naming conventions that were used when developing th
 #### Examples:
 * `IInputHandler`: Can take input.
 
+### T - Templates
+`T` is used for **templated** types. This convention is case-by-case, as it may make more sense to keep other prefix conventions based on how it's used.
+#### Examples:
+* `TObjectPtr`: This is a shared pointer template for objects of base SObject.
+* `TObjectWeakPtr`: This is a weak pointer template for objects of base SObject.
+
 ### X - Extensions
 `X` is used for **extensions**, which are classes intended not to be the base class, but to provide repeated functionality with base implementations.
 #### Examples:
