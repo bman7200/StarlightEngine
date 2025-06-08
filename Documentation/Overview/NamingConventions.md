@@ -7,7 +7,7 @@ This document outlines that naming conventions that were used when developing th
 
 ### F - Framework
 `F` is used for framework structs.
-#### E.g.:
+#### Examples:
 * `FString`: String struct for char manipulation.
 * `FVector2`, `FVector3`: Math structs for storing n-dimensional points.
 * `FColor`: Color struct for RGBA.
@@ -15,13 +15,15 @@ This document outlines that naming conventions that were used when developing th
 
 ### G - Globals
 `G` is used for global singleton variables.
-#### E.g.:
+#### Examples:
 * `GEngine` - Pointer to the global instance of Starlight Engine.
+* `GEditor` - Pointer to the global instance of the Starlight Engine Editor.
 
 ### E - Enumerators
 `E` is used for any enumerators. Makes the type easily identifable when reading through the code base.
 #### E.g.:
-* `EInputAxisOrientation`: Enum representing horizontal or vertical axis for input.
+* `EInputKeyType`: Represents the type of input.
+* `EInputAxisOrientation`: Represents horizontal or vertical axis for input.
 
 ### I - Interfaces
 `I` is used for interfaces. Makes the type easily identifable when looking at class definitions.
