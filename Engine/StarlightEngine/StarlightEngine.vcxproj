@@ -261,11 +261,10 @@
         <ClCompile Include="Source\Core\Object\SObject.cpp"/>
         <ClCompile Include="Source\Core\Object\SWorld.cpp"/>
         <ClCompile Include="Source\Engine\Engine.cpp"/>
+        <ClCompile Include="Source\Engine\Renderer\Renderer.cpp"/>
         <ClCompile Include="Source\Input\InputManager.cpp"/>
         <ClCompile Include="Source\Input\InputProcessor.cpp"/>
         <ClCompile Include="Source\Main.cpp"/>
-        <ClCompile Include="Source\Math\Math.cpp"/>
-        <ClCompile Include="Source\Renderer\Renderer.cpp"/>
     </ItemGroup>
     <ItemGroup>
         <ClInclude Include="Source\Core\CoreMinimal.h"/>
@@ -276,11 +275,13 @@
         <ClInclude Include="Source\Core\Object\SObjectPtr.h"/>
         <ClInclude Include="Source\Editor\Editor.h"/>
         <ClInclude Include="Source\Engine\Engine.h"/>
+        <ClInclude Include="Source\Engine\Renderer\Renderer.h"/>
         <ClInclude Include="Source\Input\InputManager.h"/>
         <ClInclude Include="Source\Input\InputProcessor.h"/>
-        <ClInclude Include="Source\Input\InputKeys.h" />
-        <ClInclude Include="Source\Math\Math.h"/>
-        <ClInclude Include="Source\Renderer\Renderer.h"/>
+        <ClInclude Include="Source\Input\InputKeys.h"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Source\Core\Types\"/>
     </ItemGroup>
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
     <ImportGroup Label="ExtensionTargets">
