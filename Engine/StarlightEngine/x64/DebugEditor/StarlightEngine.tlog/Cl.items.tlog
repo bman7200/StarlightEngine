@@ -2,8 +2,7 @@ D:\StarlightEngine\Engine\StarlightEngine\Source\Core\Object\SGameInstance.cpp;D
 D:\StarlightEngine\Engine\StarlightEngine\Source\Core\Object\SObject.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\DebugEditor\SObject.obj
 D:\StarlightEngine\Engine\StarlightEngine\Source\Core\Object\SWorld.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\DebugEditor\SWorld.obj
 D:\StarlightEngine\Engine\StarlightEngine\Source\Engine\Engine.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\DebugEditor\Engine.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Engine\Renderer\Renderer.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\DebugEditor\Renderer.obj
 D:\StarlightEngine\Engine\StarlightEngine\Source\Input\InputManager.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\DebugEditor\InputManager.obj
 D:\StarlightEngine\Engine\StarlightEngine\Source\Input\InputProcessor.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\DebugEditor\InputProcessor.obj
 D:\StarlightEngine\Engine\StarlightEngine\Source\Main.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\DebugEditor\Main.obj
-D:\StarlightEngine\Engine\StarlightEngine\Source\Math\Math.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\DebugEditor\Math.obj
-D:\StarlightEngine\Engine\StarlightEngine\Source\Renderer\Renderer.cpp;D:\StarlightEngine\Engine\StarlightEngine\x64\DebugEditor\Renderer.obj

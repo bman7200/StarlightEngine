@@ -3,8 +3,10 @@
 #pragma once
 
 // Libraries
-#include <memory>
 #include <type_traits>
+
+// Starlight Engine
+#include "Pointers.h"
 
 // Forward Declaration
 class SObject;
@@ -18,11 +20,11 @@ struct is_sobject_derived
 
 // SObject Shared Pointer
 template <typename T>
-using TObjectPtr = std::enable_if_t<is_sobject_derived<T>::value, std::shared_ptr<T>>;
+using TObjectPtr = std::enable_if_t<is_sobject_derived<T>::value, TSharedPtr<T>>;
 
 // SObject Weak Pointer
 template <typename T>
-using TObjectWeakPtr = std::enable_if_t<is_sobject_derived<T>::value, std::weak_ptr<T>>;
+using TObjectWeakPtr = std::enable_if_t<is_sobject_derived<T>::value, TWeakPtr<T>>;
 
 using SObjectPtr = TObjectPtr<SObject>;
 using SObjectWeakPtr = TObjectWeakPtr<SObject>;
@@ -30,5 +32,6 @@ using SObjectWeakPtr = TObjectWeakPtr<SObject>;
 template <typename T>
 static TObjectPtr<T> NewObject(SObjectPtr Outer)
 {
-	return std::make_shared<T>(Outer);
+	static_assert(is_sobject_derived<T>::value, "NewObject can only be used with types derived from SObject");
+	return TMakeShared<T>(Outer);
 }

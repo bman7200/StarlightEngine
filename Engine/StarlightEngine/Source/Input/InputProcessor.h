@@ -12,6 +12,6 @@ public:
 	InputProcessor();
 	~InputProcessor();
 
-	virtual void HandleKeyDown(const SInputKey& InputKey) {}
-	virtual void HandleKeyUp(const SInputKey& InputKey) {}
+	virtual void HandleKeyDown(const FInputKey& InputKey) {}
+	virtual void HandleKeyUp(const FInputKey& InputKey) {}
 };

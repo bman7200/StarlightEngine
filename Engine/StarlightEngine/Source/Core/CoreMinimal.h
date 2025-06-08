@@ -5,5 +5,6 @@
 // Starlight Engine
 #include "Math/Math.h"
 #include "Engine/Engine.h"
-#include "Object/SObject.h"
+#include "Object/Object.h"
+#include "Framework/String.h"
 #include "Debug/Logging.h"

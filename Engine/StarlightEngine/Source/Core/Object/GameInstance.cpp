@@ -1,7 +1,7 @@
 // Copyright © 2025 Bman, Inc. All rights reserved.
 
 // Header
-#include "SGameInstance.h"
+#include "GameInstance.h"
 
 void SGameInstance::LoadWorld(const TObjectPtr<SWorld>& NewWorld)
 {

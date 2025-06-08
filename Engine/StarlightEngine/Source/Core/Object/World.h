@@ -3,7 +3,7 @@
 #pragma once
 
 // Starlight Engine
-#include "SObject.h"
+#include "Object.h"
 
 class SWorld : SObject
 {

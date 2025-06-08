@@ -257,9 +257,11 @@
         </Link>
     </ItemDefinitionGroup>
     <ItemGroup>
-        <ClCompile Include="Source\Core\Object\SGameInstance.cpp"/>
-        <ClCompile Include="Source\Core\Object\SObject.cpp"/>
-        <ClCompile Include="Source\Core\Object\SWorld.cpp"/>
+        <ClCompile Include="Source\Core\Framework\String.cpp"/>
+        <ClCompile Include="Source\Core\Math\Math.cpp"/>
+        <ClCompile Include="Source\Core\Object\GameInstance.cpp"/>
+        <ClCompile Include="Source\Core\Object\Object.cpp"/>
+        <ClCompile Include="Source\Core\Object\World.cpp"/>
         <ClCompile Include="Source\Engine\Engine.cpp"/>
         <ClCompile Include="Source\Engine\Renderer\Renderer.cpp"/>
         <ClCompile Include="Source\Input\InputManager.cpp"/>
@@ -269,19 +271,19 @@
     <ItemGroup>
         <ClInclude Include="Source\Core\CoreMinimal.h"/>
         <ClInclude Include="Source\Core\Debug\Logging.h"/>
-        <ClInclude Include="Source\Core\Object\SGameInstance.h"/>
-        <ClInclude Include="Source\Core\Object\SObject.h"/>
-        <ClInclude Include="Source\Core\Object\SWorld.h"/>
-        <ClInclude Include="Source\Core\Object\SObjectPtr.h"/>
+        <ClInclude Include="Source\Core\Framework\String.h"/>
+        <ClInclude Include="Source\Core\Math\Math.h"/>
+        <ClInclude Include="Source\Core\Object\GameInstance.h"/>
+        <ClInclude Include="Source\Core\Object\Object.h"/>
+        <ClInclude Include="Source\Core\Object\World.h"/>
+        <ClInclude Include="Source\Core\Object\ObjectPtr.h"/>
+        <ClInclude Include="Source\Core\Pointers.h"/>
         <ClInclude Include="Source\Editor\Editor.h"/>
         <ClInclude Include="Source\Engine\Engine.h"/>
         <ClInclude Include="Source\Engine\Renderer\Renderer.h"/>
         <ClInclude Include="Source\Input\InputManager.h"/>
         <ClInclude Include="Source\Input\InputProcessor.h"/>
         <ClInclude Include="Source\Input\InputKeys.h"/>
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="Source\Core\Types\"/>
     </ItemGroup>
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
     <ImportGroup Label="ExtensionTargets">

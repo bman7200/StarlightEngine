@@ -1,13 +1,13 @@
 // Copyright © 2025 Bman, Inc. All rights reserved.
 
 // Header
-#include "SObject.h"
+#include "Object.h"
 
-SObject::SObject(SObjectWeakPtr InOuter, const std::string& InName)
+SObject::SObject(SObjectWeakPtr InOuter, const FString& InName)
 	: Name(InName)
 	, Outer(InOuter)
 {
-	if (Name.empty())
+	if (Name.IsEmpty())
 	{
 		Name = typeid(InOuter).name();
 	}

@@ -10,19 +10,19 @@
 
 struct DebugFunctionScope
 {
-	DebugFunctionScope(std::string InFunctionName)
+	DebugFunctionScope(const FString& InFunctionName)
 	{
 		FunctionName = InFunctionName;
-		SL_LOG(FunctionName + " Started");
+		SL_LOG(FunctionName + FString(" Started"));
 	}
 
 	~DebugFunctionScope()
 	{
-		SL_LOG(FunctionName + " Ended");
+		SL_LOG(FunctionName + FString(" Ended"));
 	}
 
 private:
-	std::string FunctionName;
+	FString FunctionName;
 };
 #define SL_LOG_FUNC_SCOPE DebugFunctionScope DebugFunctionScope_##__FUNCTION__ = DebugFunctionScope(__FUNCTION__)
 
