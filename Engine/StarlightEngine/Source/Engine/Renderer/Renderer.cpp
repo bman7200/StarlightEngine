@@ -31,7 +31,7 @@ bool Renderer::Initialise(SDL_Window* Window)
 		// BHH TODO: Throw an exception
 	}
 
-	SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+	SDL_SetRenderDrawColor(m_renderer, 16, 16, 16, SDL_ALPHA_OPAQUE);
 	return true;
 }
 
@@ -51,6 +51,7 @@ void Renderer::Clear()
 		return;
 	}
 
+	SDL_SetRenderDrawColor(m_renderer, 16, 16, 16, SDL_ALPHA_OPAQUE);
 	SDL_RenderClear(m_renderer);
 }
 
@@ -60,6 +61,19 @@ void Renderer::Present()
 	{
 		return;
 	}
+
+	SDL_Window* Window = SDL_GetRenderWindow(m_renderer);
+
+	SDL_FRect Rect = {0, 0, 150, 100};
+
+	int WindowW, WindowH;
+	SDL_GetWindowSize(Window, &WindowW, &WindowH);
+
+	Rect.x += static_cast<float>(WindowW) / 2.0f - Rect.w / 2.0f;
+	Rect.y += static_cast<float>(WindowH) / 2.0f - Rect.h / 2.0f;
+
+	SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+	SDL_RenderFillRect(m_renderer, &Rect);
 
 	SDL_RenderPresent(m_renderer);
 }

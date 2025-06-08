@@ -231,7 +231,7 @@ FHueColor::operator FRenderColor() const
 FHueColor FHueColor::Clamped() const
 {
 	FHueColor Result = *this;
-	Result.H = SMath::Clamp<float>(H, 0.f, 360.f);
+	Result.H = SMath::Mod(H, 360.f);
 	Result.S = SMath::Clamp<float>(S, 0.f, 1.f);
 	Result.V = SMath::Clamp<float>(V, 0.f, 1.f);
 	Result.A = SMath::Clamp<float>(A, 0.f, 1.f);

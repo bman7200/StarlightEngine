@@ -114,11 +114,11 @@ void Engine::Render()
 {
 	SDL_Renderer* Renderer = m_mainRenderer.GetSDLRenderer();
 
-	SDL_RenderClear(Renderer);
+	m_mainRenderer.Clear();
 
 	// TODO: Render everything. Probably make the game pass separate from the UI pass.
 
-	SDL_RenderPresent(Renderer);
+	m_mainRenderer.Present();
 }
 
 std::string Engine::Version::GetVersionString()
