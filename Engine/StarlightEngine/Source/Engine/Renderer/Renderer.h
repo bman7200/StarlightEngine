@@ -5,6 +5,8 @@
 // Libraries
 #include <SDL3/SDL.h>
 
+#include "Framework/Color.h"
+
 class Renderer
 {
 public:
@@ -17,8 +19,13 @@ public:
 	void Clear();
 	void Present();
 
+	void SetClearColor(const FRenderColor& NewValue);
+	FRenderColor GetClearColor() const;
+
 	SDL_Renderer* GetSDLRenderer() const { return m_renderer; }
 
-private:
+protected:
 	SDL_Renderer* m_renderer = nullptr;
+
+	FRenderColor ClearColor = FRenderColor(0.f);
 };

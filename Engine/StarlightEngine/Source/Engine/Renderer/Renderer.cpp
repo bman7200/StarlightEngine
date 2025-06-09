@@ -31,7 +31,6 @@ bool Renderer::Initialise(SDL_Window* Window)
 		// BHH TODO: Throw an exception
 	}
 
-	SDL_SetRenderDrawColor(m_renderer, 16, 16, 16, SDL_ALPHA_OPAQUE);
 	return true;
 }
 
@@ -51,7 +50,7 @@ void Renderer::Clear()
 		return;
 	}
 
-	SDL_SetRenderDrawColor(m_renderer, 16, 16, 16, SDL_ALPHA_OPAQUE);
+	SDL_SetRenderDrawColorFloat(m_renderer, ClearColor.R, ClearColor.G, ClearColor.B, ClearColor.A);
 	SDL_RenderClear(m_renderer);
 }
 
@@ -76,4 +75,14 @@ void Renderer::Present()
 	SDL_RenderFillRect(m_renderer, &Rect);
 
 	SDL_RenderPresent(m_renderer);
+}
+
+void Renderer::SetClearColor(const FRenderColor& NewValue)
+{
+	ClearColor = NewValue;
+}
+
+FRenderColor Renderer::GetClearColor() const
+{
+	return ClearColor;
 }
