@@ -39,7 +39,7 @@ void InputManager::ProcessEvents(bool& IsRunning)
 		{
 		case SDL_EVENT_QUIT:
 			IsRunning = false;
-			SL_LOG_FUNC("SDL_EVENT_QUIT received. Shutting down engine.");
+			SL_LOG_FUNC(LogInputManager, Debug, "SDL_EVENT_QUIT received. Shutting down engine.");
 			break;
 		case SDL_EVENT_TERMINATING:
 			break;

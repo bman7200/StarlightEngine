@@ -11,7 +11,7 @@
 
 // The base class for all objects in Starlight Engine.
 // Relies on an "Outer" system, where all children of an outer are destroyed in a chain upon destruction.
-class SObject : public XSharedClass<SObject>
+class SObject : public TSharableClass<SObject>
 {
 public:
 	SObject(SObjectWeakPtr InOuter, const FString& InName = "");

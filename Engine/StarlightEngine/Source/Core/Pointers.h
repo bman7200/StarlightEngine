@@ -6,7 +6,10 @@
 #include <memory>
 
 template <class T>
-using XSharedClass = std::enable_shared_from_this<T>;
+using TSharableClass = std::enable_shared_from_this<T>;
+
+template <class T>
+using TUniquePtr = std::unique_ptr<T>;
 
 template <class T>
 using TSharedPtr = std::shared_ptr<T>;

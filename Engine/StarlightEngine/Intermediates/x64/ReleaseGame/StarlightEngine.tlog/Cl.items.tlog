@@ -1,0 +1,11 @@
+D:\StarlightEngine\Engine\StarlightEngine\Source\Core\Framework\Color.cpp;D:\StarlightEngine\Engine\StarlightEngine\Intermediates\x64\ReleaseGame\Color.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Core\Framework\String.cpp;D:\StarlightEngine\Engine\StarlightEngine\Intermediates\x64\ReleaseGame\String.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Core\Math\Math.cpp;D:\StarlightEngine\Engine\StarlightEngine\Intermediates\x64\ReleaseGame\Math.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Core\Object\GameInstance.cpp;D:\StarlightEngine\Engine\StarlightEngine\Intermediates\x64\ReleaseGame\GameInstance.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Core\Object\Object.cpp;D:\StarlightEngine\Engine\StarlightEngine\Intermediates\x64\ReleaseGame\Object.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Core\Object\World.cpp;D:\StarlightEngine\Engine\StarlightEngine\Intermediates\x64\ReleaseGame\World.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Engine\Engine.cpp;D:\StarlightEngine\Engine\StarlightEngine\Intermediates\x64\ReleaseGame\Engine.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Engine\Renderer\Renderer.cpp;D:\StarlightEngine\Engine\StarlightEngine\Intermediates\x64\ReleaseGame\Renderer.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Input\InputManager.cpp;D:\StarlightEngine\Engine\StarlightEngine\Intermediates\x64\ReleaseGame\InputManager.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Input\InputProcessor.cpp;D:\StarlightEngine\Engine\StarlightEngine\Intermediates\x64\ReleaseGame\InputProcessor.obj
+D:\StarlightEngine\Engine\StarlightEngine\Source\Main.cpp;D:\StarlightEngine\Engine\StarlightEngine\Intermediates\x64\ReleaseGame\Main.obj

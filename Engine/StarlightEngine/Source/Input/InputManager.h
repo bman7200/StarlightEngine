@@ -5,9 +5,13 @@
 // Libraries
 #include <SDL3/SDL.h>
 
+// Forward Declarations
+class Engine;
+
 class InputManager
 {
-public:
+	friend Engine;
+
 	InputManager();
 	~InputManager();
 

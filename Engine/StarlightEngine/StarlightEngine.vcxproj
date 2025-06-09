@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <!--== PROJECT CONFIGURATIONS ==-->
     <ItemGroup Label="ProjectConfigurations">
-        <ProjectConfiguration Include="DebugEditor|Win32">
-            <Configuration>DebugEditor</Configuration>
-            <Platform>Win32</Platform>
-        </ProjectConfiguration>
         <ProjectConfiguration Include="DebugEditor|x64">
             <Configuration>DebugEditor</Configuration>
             <Platform>x64</Platform>
         </ProjectConfiguration>
-        <ProjectConfiguration Include="DebugGame|Win32">
-            <Configuration>DebugGame</Configuration>
-            <Platform>Win32</Platform>
-        </ProjectConfiguration>
-        <ProjectConfiguration Include="ReleaseEditor|Win32">
-            <Configuration>ReleaseEditor</Configuration>
-            <Platform>Win32</Platform>
-        </ProjectConfiguration>
         <ProjectConfiguration Include="ReleaseEditor|x64">
             <Configuration>ReleaseEditor</Configuration>
             <Platform>x64</Platform>
-        </ProjectConfiguration>
-        <ProjectConfiguration Include="ReleaseGame|Win32">
-            <Configuration>ReleaseGame</Configuration>
-            <Platform>Win32</Platform>
         </ProjectConfiguration>
         <ProjectConfiguration Include="DebugGame|x64">
             <Configuration>DebugGame</Configuration>
@@ -34,228 +20,139 @@
             <Platform>x64</Platform>
         </ProjectConfiguration>
     </ItemGroup>
+
+    <!--== CUSTOM PROPERTIES FOR EACH CONFIGURATION ==-->
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugEditor|x64'">
+        <ConfigurationIsDebug>true</ConfigurationIsDebug>
+        <ConfigurationIsEditor>true</ConfigurationIsEditor>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseEditor|x64'">
+        <ConfigurationIsDebug>false</ConfigurationIsDebug>
+        <ConfigurationIsEditor>true</ConfigurationIsEditor>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugGame|x64'">
+        <ConfigurationIsDebug>true</ConfigurationIsDebug>
+        <ConfigurationIsEditor>false</ConfigurationIsEditor>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGame|x64'">
+        <ConfigurationIsDebug>false</ConfigurationIsDebug>
+        <ConfigurationIsEditor>false</ConfigurationIsEditor>
+    </PropertyGroup>
+
+    <!--== GLOBALS ==-->
     <PropertyGroup Label="Globals">
         <VCProjectVersion>17.0</VCProjectVersion>
         <Keyword>Win32Proj</Keyword>
         <ProjectGuid>{e3f65bb3-bf6a-40c9-b2c9-1cff0d8f7fb5}</ProjectGuid>
         <RootNamespace>StarlightEngine</RootNamespace>
         <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+        <OutDir>$(SolutionDir)Builds\$(Platform)\$(Configuration)\</OutDir>
+        <IntDir>Intermediates\$(Platform)\$(Configuration)\</IntDir>
     </PropertyGroup>
+
+    <!--== IMPORTS ==-->
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugGame|Win32'" Label="Configuration">
+
+    <!--== [x64] SETTINGS ==-->
+    <PropertyGroup Condition="'$(Platform)'=='x64'" Label="Configuration">
         <ConfigurationType>Application</ConfigurationType>
+        <PlatformToolset>v143</PlatformToolset>
+        <CharacterSet>Unicode</CharacterSet>
+    </PropertyGroup>
+
+    <!--== [DEBUG] PROPERTIES ==-->
+    <PropertyGroup Condition="'$(ConfigurationIsDebug)'=='true'" Label="Configuration">
         <UseDebugLibraries>true</UseDebugLibraries>
-        <PlatformToolset>v143</PlatformToolset>
-        <CharacterSet>Unicode</CharacterSet>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugEditor|Win32'" Label="Configuration">
-        <ConfigurationType>Application</ConfigurationType>
-        <UseDebugLibraries>true</UseDebugLibraries>
-        <PlatformToolset>v143</PlatformToolset>
-        <CharacterSet>Unicode</CharacterSet>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGame|Win32'" Label="Configuration">
-        <ConfigurationType>Application</ConfigurationType>
+    <PropertyGroup Condition="'$(ConfigurationIsDebug)'=='false'" Label="Configuration">
         <UseDebugLibraries>false</UseDebugLibraries>
-        <PlatformToolset>v143</PlatformToolset>
         <WholeProgramOptimization>true</WholeProgramOptimization>
-        <CharacterSet>Unicode</CharacterSet>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseEditor|Win32'" Label="Configuration">
-        <ConfigurationType>Application</ConfigurationType>
-        <UseDebugLibraries>false</UseDebugLibraries>
-        <PlatformToolset>v143</PlatformToolset>
-        <WholeProgramOptimization>true</WholeProgramOptimization>
-        <CharacterSet>Unicode</CharacterSet>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugGame|x64'" Label="Configuration">
-        <ConfigurationType>Application</ConfigurationType>
-        <UseDebugLibraries>true</UseDebugLibraries>
-        <PlatformToolset>v143</PlatformToolset>
-        <CharacterSet>Unicode</CharacterSet>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugEditor|x64'" Label="Configuration">
-        <ConfigurationType>Application</ConfigurationType>
-        <UseDebugLibraries>true</UseDebugLibraries>
-        <PlatformToolset>v143</PlatformToolset>
-        <CharacterSet>Unicode</CharacterSet>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGame|x64'" Label="Configuration">
-        <ConfigurationType>Application</ConfigurationType>
-        <UseDebugLibraries>false</UseDebugLibraries>
-        <PlatformToolset>v143</PlatformToolset>
-        <WholeProgramOptimization>true</WholeProgramOptimization>
-        <CharacterSet>Unicode</CharacterSet>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseEditor|x64'" Label="Configuration">
-        <ConfigurationType>Application</ConfigurationType>
-        <UseDebugLibraries>false</UseDebugLibraries>
-        <PlatformToolset>v143</PlatformToolset>
-        <WholeProgramOptimization>true</WholeProgramOptimization>
-        <CharacterSet>Unicode</CharacterSet>
-    </PropertyGroup>
+
+    <!--== IMPORT PROPERTIES ==-->
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
     <ImportGroup Label="ExtensionSettings">
     </ImportGroup>
     <ImportGroup Label="Shared">
     </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DebugGame|Win32'">
+
+    <!--== [x64] IMPORT PROPERTY SHEETS ==-->
+    <ImportGroup Label="PropertySheets" Condition="'$(Platform)'=='x64'">
         <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
     </ImportGroup>
-    <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugEditor|Win32'" Label="PropertySheets">
-        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
-    </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='ReleaseGame|Win32'">
-        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
-    </ImportGroup>
-    <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseEditor|Win32'" Label="PropertySheets">
-        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
-    </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DebugGame|x64'">
-        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
-    </ImportGroup>
-    <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugEditor|x64'" Label="PropertySheets">
-        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
-    </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='ReleaseGame|x64'">
-        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
-    </ImportGroup>
-    <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseEditor|x64'" Label="PropertySheets">
-        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
-    </ImportGroup>
+
+    <!--== USER MACROS ==-->
     <PropertyGroup Label="UserMacros"/>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugGame|x64'">
-        <IncludePath>D:\StarlightEngine\Engine\deps\SDL3-3.2.16\include;$(IncludePath)</IncludePath>
-        <LibraryPath>D:\StarlightEngine\Engine\deps\SDL3-3.2.16\lib\x64;$(LibraryPath)</LibraryPath>
+
+    <!--== [x64] PROPERTIES ==-->
+    <PropertyGroup Condition="'$(Platform)'=='x64'">
+        <IncludePath>$(SolutionDir)deps\SDL3-3.2.16\include;$(SolutionDir)deps\SDL3_image-3.2.4\include;$(IncludePath)</IncludePath>
+        <LibraryPath>$(SolutionDir)deps\SDL3-3.2.16\lib\x64;$(SolutionDir)deps\SDL3_image-3.2.4\lib\x64;$(LibraryPath)</LibraryPath>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugEditor|x64'">
-        <IncludePath>D:\StarlightEngine\Engine\deps\SDL3-3.2.16\include;$(IncludePath)</IncludePath>
-        <LibraryPath>D:\StarlightEngine\Engine\deps\SDL3-3.2.16\lib\x64;$(LibraryPath)</LibraryPath>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGame|x64'">
-        <IncludePath>D:\StarlightEngine\Engine\deps\SDL3-3.2.16\include;$(IncludePath)</IncludePath>
-        <LibraryPath>D:\StarlightEngine\Engine\deps\SDL3-3.2.16\lib\x64;$(LibraryPath)</LibraryPath>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseEditor|x64'">
-        <IncludePath>D:\StarlightEngine\Engine\deps\SDL3-3.2.16\include;$(IncludePath)</IncludePath>
-        <LibraryPath>D:\StarlightEngine\Engine\deps\SDL3-3.2.16\lib\x64;$(LibraryPath)</LibraryPath>
-    </PropertyGroup>
-    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugGame|Win32'">
+
+    <!--== [x64] ITEM DEFINITIONS ==-->
+    <ItemDefinitionGroup Condition="'$(Platform)'=='x64'">
         <ClCompile>
             <WarningLevel>Level3</WarningLevel>
-            <SDLCheck>true</SDLCheck>
-            <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
             <ConformanceMode>true</ConformanceMode>
+            <PreprocessorDefinitions>_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+            <SDLCheck>true</SDLCheck>
             <AdditionalIncludeDirectories>Source;Source/Core/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
         </ClCompile>
         <Link>
             <SubSystem>Console</SubSystem>
+            <AdditionalDependencies>SDL3.lib;SDL3_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+        </Link>
+        <PreBuildEvent Condition="">
+            <Command>
+                <!--
+                // If want to completely remove all "Assets\" before-hand
+                rmdir "$(TargetDir)Assets\" /S /Q
+                -->
+            </Command>
+        </PreBuildEvent>
+        <PostBuildEvent>
+            <Command>
+                xcopy "$(ProjectDir)Assets" "$(TargetDir)Assets\" /E /Y /I /D
+                xcopy "$(SolutionDir)deps\SDL3-3.2.16\lib\x64\SDL3.dll" "$(TargetDir)" /I /Y /D
+                xcopy "$(SolutionDir)deps\SDL3_image-3.2.4\lib\x64\SDL3_image.dll" "$(TargetDir)" /I /Y /D
+            </Command>
+        </PostBuildEvent>
+    </ItemDefinitionGroup>
+
+    <!--== [DEBUG] ITEM DEFINITIONS ==-->
+    <ItemDefinitionGroup Condition="'$(ConfigurationIsDebug)'=='true'">
+        <ClCompile>
+            <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        </ClCompile>
+        <Link>
             <GenerateDebugInformation>true</GenerateDebugInformation>
         </Link>
     </ItemDefinitionGroup>
-    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugEditor|Win32'">
+    <ItemDefinitionGroup Condition="'$(ConfigurationIsDebug)'!='true'">
         <ClCompile>
-            <WarningLevel>Level3</WarningLevel>
-            <SDLCheck>true</SDLCheck>
-            <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-            <ConformanceMode>true</ConformanceMode>
-            <AdditionalIncludeDirectories>Source;Source/Core/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-        </ClCompile>
-        <Link>
-            <SubSystem>Console</SubSystem>
-            <GenerateDebugInformation>true</GenerateDebugInformation>
-        </Link>
-    </ItemDefinitionGroup>
-    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGame|Win32'">
-        <ClCompile>
-            <WarningLevel>Level3</WarningLevel>
             <FunctionLevelLinking>true</FunctionLevelLinking>
             <IntrinsicFunctions>true</IntrinsicFunctions>
-            <SDLCheck>true</SDLCheck>
-            <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-            <ConformanceMode>true</ConformanceMode>
-            <AdditionalIncludeDirectories>Source;Source/Core/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+            <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
         </ClCompile>
         <Link>
-            <SubSystem>Console</SubSystem>
             <GenerateDebugInformation>false</GenerateDebugInformation>
         </Link>
     </ItemDefinitionGroup>
-    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseEditor|Win32'">
+
+    <!--== [EDITOR] ITEM DEFINITIONS ==-->
+    <ItemDefinitionGroup Condition="'$(ConfigurationIsEditor)'=='true'">
         <ClCompile>
-            <WarningLevel>Level3</WarningLevel>
-            <FunctionLevelLinking>true</FunctionLevelLinking>
-            <IntrinsicFunctions>true</IntrinsicFunctions>
-            <SDLCheck>true</SDLCheck>
-            <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-            <ConformanceMode>true</ConformanceMode>
-            <AdditionalIncludeDirectories>Source;Source/Core/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+            <PreprocessorDefinitions>WITH_EDITOR=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
         </ClCompile>
-        <Link>
-            <SubSystem>Console</SubSystem>
-            <GenerateDebugInformation>false</GenerateDebugInformation>
-        </Link>
     </ItemDefinitionGroup>
-    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugGame|x64'">
+    <ItemDefinitionGroup Condition="'$(ConfigurationIsEditor)'!='true'">
         <ClCompile>
-            <WarningLevel>Level3</WarningLevel>
-            <SDLCheck>true</SDLCheck>
-            <PreprocessorDefinitions>_DEBUG;_CONSOLE;WITH_EDITOR=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-            <ConformanceMode>true</ConformanceMode>
-            <AdditionalIncludeDirectories>Source;Source/Core/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+            <PreprocessorDefinitions>WITH_EDITOR=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
         </ClCompile>
-        <Link>
-            <SubSystem>Console</SubSystem>
-            <GenerateDebugInformation>true</GenerateDebugInformation>
-            <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-        </Link>
     </ItemDefinitionGroup>
-    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugEditor|x64'">
-        <ClCompile>
-            <WarningLevel>Level3</WarningLevel>
-            <SDLCheck>true</SDLCheck>
-            <PreprocessorDefinitions>_DEBUG;_CONSOLE;WITH_EDITOR=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-            <ConformanceMode>true</ConformanceMode>
-            <AdditionalIncludeDirectories>Source;Source/Core/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-        </ClCompile>
-        <Link>
-            <SubSystem>Console</SubSystem>
-            <GenerateDebugInformation>true</GenerateDebugInformation>
-            <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-        </Link>
-    </ItemDefinitionGroup>
-    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseGame|x64'">
-        <ClCompile>
-            <WarningLevel>Level3</WarningLevel>
-            <FunctionLevelLinking>true</FunctionLevelLinking>
-            <IntrinsicFunctions>true</IntrinsicFunctions>
-            <SDLCheck>true</SDLCheck>
-            <PreprocessorDefinitions>NDEBUG;_CONSOLE;WITH_EDITOR=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-            <ConformanceMode>true</ConformanceMode>
-            <AdditionalIncludeDirectories>Source;Source/Core/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-        </ClCompile>
-        <Link>
-            <SubSystem>Console</SubSystem>
-            <GenerateDebugInformation>false</GenerateDebugInformation>
-            <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-        </Link>
-    </ItemDefinitionGroup>
-    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseEditor|x64'">
-        <ClCompile>
-            <WarningLevel>Level3</WarningLevel>
-            <FunctionLevelLinking>true</FunctionLevelLinking>
-            <IntrinsicFunctions>true</IntrinsicFunctions>
-            <SDLCheck>true</SDLCheck>
-            <PreprocessorDefinitions>NDEBUG;_CONSOLE;WITH_EDITOR=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-            <ConformanceMode>true</ConformanceMode>
-            <AdditionalIncludeDirectories>Source;Source/Core/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-        </ClCompile>
-        <Link>
-            <SubSystem>Console</SubSystem>
-            <GenerateDebugInformation>false</GenerateDebugInformation>
-            <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-        </Link>
-    </ItemDefinitionGroup>
+
+    <!--== CPP FILES ==-->
     <ItemGroup>
         <ClCompile Include="Source\Core\Framework\Color.cpp"/>
         <ClCompile Include="Source\Core\Framework\String.cpp"/>
@@ -265,10 +162,13 @@
         <ClCompile Include="Source\Core\Object\World.cpp"/>
         <ClCompile Include="Source\Engine\Engine.cpp"/>
         <ClCompile Include="Source\Engine\Renderer\Renderer.cpp"/>
+        <ClCompile Include="Source\Engine\ResourceManager.cpp"/>
         <ClCompile Include="Source\Input\InputManager.cpp"/>
         <ClCompile Include="Source\Input\InputProcessor.cpp"/>
         <ClCompile Include="Source\Main.cpp"/>
     </ItemGroup>
+
+    <!--== HEADER FILES ==-->
     <ItemGroup>
         <ClInclude Include="Source\Core\CoreMinimal.h"/>
         <ClInclude Include="Source\Core\Debug\Logging.h"/>
@@ -286,10 +186,13 @@
         <ClInclude Include="Source\Editor\Editor.h"/>
         <ClInclude Include="Source\Engine\Engine.h"/>
         <ClInclude Include="Source\Engine\Renderer\Renderer.h"/>
+        <ClInclude Include="Source\Engine\ResourceManager.h"/>
         <ClInclude Include="Source\Input\InputManager.h"/>
         <ClInclude Include="Source\Input\InputProcessor.h"/>
         <ClInclude Include="Source\Input\InputKeys.h"/>
     </ItemGroup>
+
+    <!--== IMPORT TARGETS ==-->
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
     <ImportGroup Label="ExtensionTargets">
     </ImportGroup>

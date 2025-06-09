@@ -35,6 +35,9 @@ struct FString
 
 	friend std::ostream& operator<<(std::ostream& Out, const FString& String);
 
+	operator const std::string() const { return Data; }
+	operator const char*() const { return CStr(); }
+
 	// Public Methods
 	int GetLength() const { return static_cast<int>(Length); }
 	bool IsEmpty() const { return Length == 0; }

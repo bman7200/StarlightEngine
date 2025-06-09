@@ -6,6 +6,12 @@
 // Libraries
 #include <iostream>
 
+// Starlight Engine
+#include <SDL3_image/SDL_image.h>
+
+#include "Debug/Logging.h"
+#include "Engine/ResourceManager.h"
+
 Renderer::Renderer() :
 	m_renderer(nullptr)
 {
@@ -21,13 +27,13 @@ bool Renderer::Initialise(SDL_Window* Window)
 {
 	if (Window == nullptr)
 	{
-		std::cerr << "Renderer: Initialise failed because Window is invalid!" << std::endl;
+		SL_LOG_FUNC(LogRenderer, Error, "Renderer: Initialise failed because Window is invalid!");
 	}
 
 	m_renderer = SDL_CreateRenderer(Window, nullptr);
 	if (m_renderer == nullptr)
 	{
-		std::cerr << "Renderer: SDL_CreateRenderer failed! SDL_Error: " << SDL_GetError() << std::endl;
+		SL_LOG_FUNC(LogRenderer, Error, "Renderer: SDL_CreateRenderer failed! SDL_Error: " + SDL_GetErrorFString());
 		// BHH TODO: Throw an exception
 	}
 
@@ -43,46 +49,69 @@ void Renderer::Shutdown()
 	}
 }
 
-void Renderer::Clear()
+void Renderer::BeginFrame() const
 {
 	if (m_renderer == nullptr)
 	{
 		return;
 	}
 
-	SDL_SetRenderDrawColorFloat(m_renderer, ClearColor.R, ClearColor.G, ClearColor.B, ClearColor.A);
+	Clear();
+}
+
+void Renderer::EndFrame() const
+{
+	if (m_renderer == nullptr)
+	{
+		return;
+	}
+
+	SDL_Surface* MainIconSurface = IMG_Load(FAssetPath(R"(Editor\StarlightEngine\Icon40px.png)"));
+	SDL_Texture* MainIconTexture = SDL_CreateTextureFromSurface(m_renderer, MainIconSurface);
+	const SDL_FRect FRect = {0, 0, static_cast<float>(MainIconTexture->w), static_cast<float>(MainIconTexture->h)};
+	SDL_RenderTexture(m_renderer, MainIconTexture, nullptr, nullptr);
+
+	Present();
+}
+
+void Renderer::Clear() const
+{
+	ClearCustom(m_clearColor);
+}
+
+void Renderer::ClearCustom(FRenderColor InClearColor) const
+{
+	SDL_SetRenderDrawColorFloat(m_renderer, InClearColor.R, InClearColor.G, InClearColor.B, InClearColor.A);
 	SDL_RenderClear(m_renderer);
 }
 
-void Renderer::Present()
+void Renderer::Present() const
 {
 	if (m_renderer == nullptr)
 	{
 		return;
 	}
-
-	SDL_Window* Window = SDL_GetRenderWindow(m_renderer);
-
-	SDL_FRect Rect = {0, 0, 150, 100};
-
-	int WindowW, WindowH;
-	SDL_GetWindowSize(Window, &WindowW, &WindowH);
-
-	Rect.x += static_cast<float>(WindowW) / 2.0f - Rect.w / 2.0f;
-	Rect.y += static_cast<float>(WindowH) / 2.0f - Rect.h / 2.0f;
-
-	SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-	SDL_RenderFillRect(m_renderer, &Rect);
 
 	SDL_RenderPresent(m_renderer);
 }
 
 void Renderer::SetClearColor(const FRenderColor& NewValue)
 {
-	ClearColor = NewValue;
+	m_clearColor = NewValue;
 }
 
-FRenderColor Renderer::GetClearColor() const
+const FRenderColor& Renderer::GetClearColor() const
 {
-	return ClearColor;
+	return m_clearColor;
+}
+
+void Renderer::DrawRectangle(float X, float Y, float W, float H) const
+{
+	SDL_FRect FRect({X, Y, W, H});
+	DrawRectangle(&FRect);
+}
+
+void Renderer::DrawRectangle(const SDL_FRect* Rect) const
+{
+	SDL_RenderFillRect(m_renderer, Rect);
 }

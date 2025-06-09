@@ -4,19 +4,16 @@
 #include "Engine.h"
 
 // Libraries
-#include <iostream>
-#include <ostream>
 #include <SDL3/SDL.h>
-#include <SDL3/SDL_render.h>
-#include <string>
+#include <SDL3_image/SDL_image.h>
 
 // Starlight Engine
+#include "ResourceManager.h"
 #include "Debug/Logging.h"
 #include "Input/InputManager.h"
 #include "Renderer/Renderer.h"
 
-Engine::Engine() :
-	m_mainWindow(nullptr)
+Engine::Engine()
 {
 	if (GEngine == nullptr)
 	{
@@ -24,6 +21,7 @@ Engine::Engine() :
 	}
 	else
 	{
+		SL_LOG(LogEngine, Error, "Additional Engine was created when GEngine was already valid.");
 		delete this;
 	}
 }
@@ -35,7 +33,7 @@ Engine::~Engine()
 
 bool Engine::Initialise()
 {
-	SL_LOG_FUNC_SCOPE;
+	SL_LOG_FUNC_SCOPE(LogEngine, Debug);
 
 	if (InitialiseMainWindow() == false)
 	{
@@ -52,22 +50,24 @@ bool Engine::Initialise()
 
 void Engine::Shutdown()
 {
-	SL_LOG_FUNC_SCOPE;
+	SL_LOG_FUNC_SCOPE(LogEngine, Debug);
 
 	ShutdownMainWindow();
 }
 
 bool Engine::InitialiseMainWindow()
 {
-	SL_LOG_FUNC_SCOPE;
+	SL_LOG_FUNC_SCOPE(LogEngine, Debug);
 
 	const SDL_PropertiesID MainWindowProperties = SDL_CreateProperties();
 	#if WITH_EDITOR
-	SDL_SetStringProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_TITLE_STRING, Display::GetEngineTitleString_Configuration_Version().c_str());
+	SDL_SetStringProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_TITLE_STRING, Display::GetEngineTitleString_Configuration_Version());
 	SDL_SetNumberProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_WIDTH_NUMBER, 800);
 	SDL_SetNumberProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER, 600);
 
-	constexpr Sint64 MainWindowFlags = SDL_WINDOW_RESIZABLE | SDL_WINDOW_MAXIMIZED;
+	Sint64 MainWindowFlags = SDL_WINDOW_RESIZABLE;
+	// BHH TODO: Cache maximized based on last use of engine.
+	// MainWindowFlags |= SDL_WINDOW_MAXIMIZED;
 	SDL_SetNumberProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_FLAGS_NUMBER, MainWindowFlags);
 	#else
 	SDL_SetStringProperty(MainWindowProperties, SDL_PROP_WINDOW_CREATE_TITLE_STRING, "Game Project Name");
@@ -81,9 +81,33 @@ bool Engine::InitialiseMainWindow()
 	if (m_mainWindow == nullptr)
 	{
 		// BHH TODO: Throw an exception.
-		std::cout << "MainWindow could not be created! SDL_Error: " << SDL_GetError() << std::endl;
+		SL_LOG_FUNC(LogEngine, Error, "MainWindow could not be Created! SDL_Error: " + SDL_GetErrorFString());
 		return false;
 	}
+
+	#if WITH_EDITOR
+	// Set icon
+	{
+		SDL_Surface* MainIconSurface = IMG_Load(FAssetPath(R"(Editor\StarlightEngine\Icon40px.png)"));
+		SDL_SetWindowIcon(m_mainWindow, MainIconSurface);
+	}
+
+	// Resize based on screen
+	{
+		SDL_DisplayID MainWindowDisplayID = SDL_GetDisplayForWindow(m_mainWindow);
+		SDL_Rect DisplayUsableBounds;
+		if (SDL_GetDisplayUsableBounds(MainWindowDisplayID, &DisplayUsableBounds))
+		{
+			DisplayUsableBounds.x += static_cast<int>(static_cast<float>(DisplayUsableBounds.w) * 0.1f);
+			DisplayUsableBounds.y += static_cast<int>(static_cast<float>(DisplayUsableBounds.h) * 0.1f);
+			DisplayUsableBounds.w = static_cast<int>(static_cast<float>(DisplayUsableBounds.w) * 0.8f);
+			DisplayUsableBounds.h = static_cast<int>(static_cast<float>(DisplayUsableBounds.h) * 0.8f);
+
+			SDL_SetWindowPosition(m_mainWindow, DisplayUsableBounds.x, DisplayUsableBounds.y);
+			SDL_SetWindowSize(m_mainWindow, DisplayUsableBounds.w, DisplayUsableBounds.h);
+		}
+	}
+	#endif
 
 	// Renderer
 	m_mainRenderer.Initialise(m_mainWindow);
@@ -93,7 +117,7 @@ bool Engine::InitialiseMainWindow()
 
 void Engine::ShutdownMainWindow()
 {
-	SL_LOG_FUNC_SCOPE;
+	SL_LOG_FUNC_SCOPE(LogEngine, Debug);
 
 	m_mainRenderer.Shutdown();
 	SDL_DestroyWindow(m_mainWindow);
@@ -112,36 +136,34 @@ void Engine::Tick(bool& IsRunning, float DeltaTime)
 
 void Engine::Render()
 {
-	SDL_Renderer* Renderer = m_mainRenderer.GetSDLRenderer();
-
-	m_mainRenderer.Clear();
+	m_mainRenderer.BeginFrame();
 
 	// TODO: Render everything. Probably make the game pass separate from the UI pass.
 
-	m_mainRenderer.Present();
+	m_mainRenderer.EndFrame();
 }
 
-std::string Engine::Version::GetVersionString()
+FString Engine::Version::GetVersionString()
 {
-	return std::to_string(MAJOR) + "." + std::to_string(MINOR) + "." + std::to_string(PATCH);
+	return FString(MAJOR) + "." + FString(MINOR) + "." + FString(PATCH);
 }
 
-std::string Engine::Display::GetEngineTitleString()
+FString Engine::Display::GetEngineTitleString()
 {
 	return "Starlight Engine";
 }
 
-std::string Engine::Display::GetEngineTitleString_Configuration()
+FString Engine::Display::GetEngineTitleString_Configuration()
 {
 	return GetEngineTitleString() + " [" + GetConfigurationTitleString() + "]";
 }
 
-std::string Engine::Display::GetEngineTitleString_Configuration_Version()
+FString Engine::Display::GetEngineTitleString_Configuration_Version()
 {
 	return GetEngineTitleString_Configuration() + " ✦ V" + Version::GetVersionString();
 }
 
-std::string Engine::Display::GetConfigurationTitleString()
+FString Engine::Display::GetConfigurationTitleString()
 {
 	#if WITH_EDITOR
 	#ifdef _DEBUG
