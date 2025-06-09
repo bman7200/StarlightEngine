@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
     <!--== PROJECT CONFIGURATIONS ==-->
     <ItemGroup Label="ProjectConfigurations">
         <ProjectConfiguration Include="DebugEditor|x64">
@@ -20,7 +19,6 @@
             <Platform>x64</Platform>
         </ProjectConfiguration>
     </ItemGroup>
-
     <!--== CUSTOM PROPERTIES FOR EACH CONFIGURATION ==-->
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugEditor|x64'">
         <ConfigurationIsDebug>true</ConfigurationIsDebug>
@@ -38,7 +36,6 @@
         <ConfigurationIsDebug>false</ConfigurationIsDebug>
         <ConfigurationIsEditor>false</ConfigurationIsEditor>
     </PropertyGroup>
-
     <!--== GLOBALS ==-->
     <PropertyGroup Label="Globals">
         <VCProjectVersion>17.0</VCProjectVersion>
@@ -49,17 +46,14 @@
         <OutDir>$(SolutionDir)Builds\$(Platform)\$(Configuration)\</OutDir>
         <IntDir>Intermediates\$(Platform)\$(Configuration)\</IntDir>
     </PropertyGroup>
-
     <!--== IMPORTS ==-->
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
-
     <!--== [x64] SETTINGS ==-->
     <PropertyGroup Condition="'$(Platform)'=='x64'" Label="Configuration">
         <ConfigurationType>Application</ConfigurationType>
         <PlatformToolset>v143</PlatformToolset>
         <CharacterSet>Unicode</CharacterSet>
     </PropertyGroup>
-
     <!--== [DEBUG] PROPERTIES ==-->
     <PropertyGroup Condition="'$(ConfigurationIsDebug)'=='true'" Label="Configuration">
         <UseDebugLibraries>true</UseDebugLibraries>
@@ -68,28 +62,23 @@
         <UseDebugLibraries>false</UseDebugLibraries>
         <WholeProgramOptimization>true</WholeProgramOptimization>
     </PropertyGroup>
-
     <!--== IMPORT PROPERTIES ==-->
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
     <ImportGroup Label="ExtensionSettings">
     </ImportGroup>
     <ImportGroup Label="Shared">
     </ImportGroup>
-
     <!--== [x64] IMPORT PROPERTY SHEETS ==-->
     <ImportGroup Label="PropertySheets" Condition="'$(Platform)'=='x64'">
         <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
     </ImportGroup>
-
     <!--== USER MACROS ==-->
     <PropertyGroup Label="UserMacros"/>
-
     <!--== [x64] PROPERTIES ==-->
     <PropertyGroup Condition="'$(Platform)'=='x64'">
         <IncludePath>$(SolutionDir)deps\SDL3-3.2.16\include;$(SolutionDir)deps\SDL3_image-3.2.4\include;$(IncludePath)</IncludePath>
         <LibraryPath>$(SolutionDir)deps\SDL3-3.2.16\lib\x64;$(SolutionDir)deps\SDL3_image-3.2.4\lib\x64;$(LibraryPath)</LibraryPath>
     </PropertyGroup>
-
     <!--== [x64] ITEM DEFINITIONS ==-->
     <ItemDefinitionGroup Condition="'$(Platform)'=='x64'">
         <ClCompile>
@@ -106,9 +95,9 @@
         <PreBuildEvent Condition="">
             <Command>
                 <!--
-                // If want to completely remove all "Assets\" before-hand
-                rmdir "$(TargetDir)Assets\" /S /Q
-                -->
+                        // If want to completely remove all "Assets\" before-hand
+                        rmdir "$(TargetDir)Assets\" /S /Q
+                        -->
             </Command>
         </PreBuildEvent>
         <PostBuildEvent>
@@ -119,7 +108,6 @@
             </Command>
         </PostBuildEvent>
     </ItemDefinitionGroup>
-
     <!--== [DEBUG] ITEM DEFINITIONS ==-->
     <ItemDefinitionGroup Condition="'$(ConfigurationIsDebug)'=='true'">
         <ClCompile>
@@ -139,7 +127,6 @@
             <GenerateDebugInformation>false</GenerateDebugInformation>
         </Link>
     </ItemDefinitionGroup>
-
     <!--== [EDITOR] ITEM DEFINITIONS ==-->
     <ItemDefinitionGroup Condition="'$(ConfigurationIsEditor)'=='true'">
         <ClCompile>
@@ -151,7 +138,6 @@
             <PreprocessorDefinitions>WITH_EDITOR=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
         </ClCompile>
     </ItemDefinitionGroup>
-
     <!--== CPP FILES ==-->
     <ItemGroup>
         <ClCompile Include="Source\Core\Framework\Color.cpp"/>
@@ -167,9 +153,9 @@
         <ClCompile Include="Source\Input\InputProcessor.cpp"/>
         <ClCompile Include="Source\Main.cpp"/>
     </ItemGroup>
-
     <!--== HEADER FILES ==-->
     <ItemGroup>
+        <ClInclude Include="resource.h"/>
         <ClInclude Include="Source\Core\CoreMinimal.h"/>
         <ClInclude Include="Source\Core\Debug\Logging.h"/>
         <ClInclude Include="Source\Core\Framework\Color.h"/>
@@ -191,7 +177,13 @@
         <ClInclude Include="Source\Input\InputProcessor.h"/>
         <ClInclude Include="Source\Input\InputKeys.h"/>
     </ItemGroup>
-
+    <!-- RESOURCES -->
+    <ItemGroup>
+        <Image Include="$(SolutionDir)\..\Art\Icon.ico"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ResourceCompile Include="StarlightEngine.rc"/>
+    </ItemGroup>
     <!--== IMPORT TARGETS ==-->
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
     <ImportGroup Label="ExtensionTargets">

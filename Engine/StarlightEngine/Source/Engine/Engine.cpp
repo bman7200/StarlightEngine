@@ -86,12 +86,6 @@ bool Engine::InitialiseMainWindow()
 	}
 
 	#if WITH_EDITOR
-	// Set icon
-	{
-		SDL_Surface* MainIconSurface = IMG_Load(FAssetPath(R"(Editor\StarlightEngine\Icon40px.png)"));
-		SDL_SetWindowIcon(m_mainWindow, MainIconSurface);
-	}
-
 	// Resize based on screen
 	{
 		SDL_DisplayID MainWindowDisplayID = SDL_GetDisplayForWindow(m_mainWindow);
