@@ -66,10 +66,13 @@ void Renderer::EndFrame() const
 		return;
 	}
 
-	SDL_Surface* MainIconSurface = IMG_Load(FAssetPath(R"(Editor\StarlightEngine\Icon40px.png)"));
+	SDL_Surface* MainIconSurface = IMG_Load(FAssetPath(R"(Editor\StarlightEngine\Icon160px.png)"));
 	SDL_Texture* MainIconTexture = SDL_CreateTextureFromSurface(m_renderer, MainIconSurface);
+	// SDL_SetTextureScaleMode(MainIconTexture, SDL_SCALEMODE_NEAREST);
 	const SDL_FRect FRect = {0, 0, static_cast<float>(MainIconTexture->w), static_cast<float>(MainIconTexture->h)};
 	SDL_RenderTexture(m_renderer, MainIconTexture, nullptr, nullptr);
+	SDL_DestroyTexture(MainIconTexture);
+	SDL_DestroySurface(MainIconSurface);
 
 	Present();
 }

@@ -1,3 +1,5 @@
 # IDE specific files
 Engine/.idea/
 Engine/.vs/
+Engine/Builds/
+Engine/StarlightEngine/Intermediates/
