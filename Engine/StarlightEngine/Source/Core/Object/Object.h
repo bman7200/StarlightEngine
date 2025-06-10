@@ -14,7 +14,7 @@
 class SObject : public TSharableClass<SObject>
 {
 public:
-	SObject(SObjectWeakPtr InOuter, const FString& InName = "");
+	SObject(SWeakObjectPtr InOuter, const FString& InName = "");
 
 protected:
 	virtual ~SObject();
@@ -24,7 +24,7 @@ public:
 
 	const FString& GetName() const { return Name; }
 
-	SObjectWeakPtr GetOuter() const { return Outer; }
+	SWeakObjectPtr GetOuter() const { return Outer; }
 	SObjectPtr GetOuterShared() const { return Outer.lock(); }
 
 	/// @returns whether it was successfully marked newly for destruction.
@@ -38,6 +38,6 @@ private:
 
 	FString Name;
 
-	SObjectWeakPtr Outer;
+	SWeakObjectPtr Outer;
 	std::vector<SObjectPtr> Inners;
 };

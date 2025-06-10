@@ -3,7 +3,7 @@
 #pragma once
 
 // Starlight Engine
-#include "Math/Math.h"
+#include "Math/CoreMath.h"
 #include "Engine/Engine.h"
 #include "Engine/ResourceManager.h"
 #include "Object/Object.h"

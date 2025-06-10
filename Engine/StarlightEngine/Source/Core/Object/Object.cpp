@@ -3,7 +3,7 @@
 // Header
 #include "Object.h"
 
-SObject::SObject(SObjectWeakPtr InOuter, const FString& InName)
+SObject::SObject(SWeakObjectPtr InOuter, const FString& InName)
 	: Name(InName)
 	, Outer(InOuter)
 {

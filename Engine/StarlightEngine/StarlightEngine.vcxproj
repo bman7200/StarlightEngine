@@ -86,7 +86,7 @@
             <ConformanceMode>true</ConformanceMode>
             <PreprocessorDefinitions>_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
             <SDLCheck>true</SDLCheck>
-            <AdditionalIncludeDirectories>Source;Source/Core/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+            <AdditionalIncludeDirectories>Source;Source/Core/;Source/Lattice/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
         </ClCompile>
         <Link>
             <SubSystem>Console</SubSystem>
@@ -142,15 +142,18 @@
     <ItemGroup>
         <ClCompile Include="Source\Core\Framework\Color.cpp"/>
         <ClCompile Include="Source\Core\Framework\String.cpp"/>
-        <ClCompile Include="Source\Core\Math\Math.cpp"/>
-        <ClCompile Include="Source\Core\Object\GameInstance.cpp"/>
+        <ClCompile Include="Source\Core\Math\CoreMath.cpp"/>
+        <ClCompile Include="Source\Core\Object\AppInstance.cpp"/>
         <ClCompile Include="Source\Core\Object\Object.cpp"/>
+        <ClCompile Include="Source\Core\Object\UserController.cpp"/>
         <ClCompile Include="Source\Core\Object\World.cpp"/>
         <ClCompile Include="Source\Engine\Engine.cpp"/>
         <ClCompile Include="Source\Engine\Renderer\Renderer.cpp"/>
         <ClCompile Include="Source\Engine\ResourceManager.cpp"/>
         <ClCompile Include="Source\Input\InputManager.cpp"/>
         <ClCompile Include="Source\Input\InputProcessor.cpp"/>
+        <ClCompile Include="Source\Lattice\Widget.cpp"/>
+        <ClCompile Include="Source\Lattice\WidgetTransform.cpp"/>
         <ClCompile Include="Source\Main.cpp"/>
     </ItemGroup>
     <!--== HEADER FILES ==-->
@@ -161,11 +164,13 @@
         <ClInclude Include="Source\Core\Framework\Color.h"/>
         <ClInclude Include="Source\Core\Framework\String.h"/>
         <ClInclude Include="Source\Core\Hash.h"/>
+        <ClInclude Include="Source\Core\Math\CoreMath.h"/>
         <ClInclude Include="Source\Core\Math\Math.h"/>
         <ClInclude Include="Source\Core\Math\Vector2.h"/>
         <ClInclude Include="Source\Core\Math\Vector3.h"/>
-        <ClInclude Include="Source\Core\Object\GameInstance.h"/>
+        <ClInclude Include="Source\Core\Object\AppInstance.h"/>
         <ClInclude Include="Source\Core\Object\Object.h"/>
+        <ClInclude Include="Source\Core\Object\UserController.h"/>
         <ClInclude Include="Source\Core\Object\World.h"/>
         <ClInclude Include="Source\Core\Object\ObjectPtr.h"/>
         <ClInclude Include="Source\Core\Pointers.h"/>
@@ -176,6 +181,8 @@
         <ClInclude Include="Source\Input\InputManager.h"/>
         <ClInclude Include="Source\Input\InputProcessor.h"/>
         <ClInclude Include="Source\Input\InputKeys.h"/>
+        <ClInclude Include="Source\Lattice\Widget.h"/>
+        <ClInclude Include="Source\Lattice\WidgetTransform.h"/>
     </ItemGroup>
     <!-- RESOURCES -->
     <ItemGroup>

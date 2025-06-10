@@ -15,19 +15,19 @@ class SObject;
 template <typename T>
 struct is_sobject_derived
 {
-	static constexpr bool value = std::is_base_of<SObject, T>::value;
+	static constexpr bool value = std::is_convertible_v<T*, SObject*>;
 };
 
 // SObject Shared Pointer
 template <typename T>
-using TObjectPtr = std::enable_if_t<is_sobject_derived<T>::value, TSharedPtr<T>>;
+using TObjectPtr = TSharedPtr<T>;
 
 // SObject Weak Pointer
 template <typename T>
-using TObjectWeakPtr = std::enable_if_t<is_sobject_derived<T>::value, TWeakPtr<T>>;
+using TWeakObjectPtr = TWeakPtr<T>;
 
 using SObjectPtr = TObjectPtr<SObject>;
-using SObjectWeakPtr = TObjectWeakPtr<SObject>;
+using SWeakObjectPtr = TWeakObjectPtr<SObject>;
 
 template <typename T>
 static TObjectPtr<T> NewObject(SObjectPtr Outer)

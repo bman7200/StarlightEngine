@@ -1,9 +1,9 @@
 // Copyright © 2025 Bman, Inc. All rights reserved.
 
 // Header
-#include "GameInstance.h"
+#include "AppInstance.h"
 
-void SGameInstance::LoadWorld(const TObjectPtr<SWorld>& NewWorld)
+void SAppInstance::LoadWorld(const TObjectPtr<SWorld>& NewWorld)
 {
 	CurrentWorld.reset();
 
